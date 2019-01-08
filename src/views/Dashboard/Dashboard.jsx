@@ -1,8 +1,10 @@
+import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 import { makeStyles } from '@material-ui/styles';
 import React from 'react';
 import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { Chip, Grid, Paper, Switch, Typography } from '../../../node_modules/@material-ui/core';
 import Table from "../../components/Table/Table";
+
 
 const data = [
     { name: 'Jan', facebook: 40, twitter: 24, instagram: 24, amt: 24 },
@@ -54,15 +56,16 @@ const useStyles = makeStyles({
         margin: 6
     }
 })
-function Dashboard() {
+function Dashboard({width}) {
     const classes = useStyles();
+    const chartHeight = isWidthUp('md', width)?500:300;
     return (<div>
         <Grid container>
             <Grid item xs={12} sm={12} md={8}>
                 <Paper square className={classes.paper}>
                     <Typography color={"secondary"} variant={"subtitle1"}>Overall Stats</Typography>
 
-                    <ResponsiveContainer height={500}>
+                    <ResponsiveContainer height={chartHeight}>
 
                         <LineChart data={data}
                             margin={{ top: 32, left: -16, bottom: 16, right: 32 }}>
@@ -81,7 +84,7 @@ function Dashboard() {
             <Grid item xs={12} sm={12} md={4}>
                 <Paper square className={classes.paper}>
                     <Typography color={"secondary"} variant={"subtitle1"}>Trends</Typography>
-                    <ResponsiveContainer height={500}>
+                    <ResponsiveContainer height={chartHeight}>
 
                         <BarChart data={data}
                             layout="vertical"
@@ -111,10 +114,10 @@ function Dashboard() {
                 color: "white"
             }}>
 
-                <Grid item xs={12} sm={12} md={12}>
+                <Grid item xs={12} sm={12} md={12} style={{ height: "31.5%" }}>
                     <Paper className={classes.paper} style={{ /* Chrome 10-25, Safari 5.1-6 */
                         background: "linear-gradient(to right, #11998e, #38ef7d)", /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                        height: "30%",
+                        height: "100%",
                     }}>
                         <Typography color={"inherit"} variant={"h2"}
                             style={{ position: "absolute", right: 40, marginTop: 12, opacity: 0.3 }}>25%</Typography>
@@ -125,10 +128,10 @@ function Dashboard() {
 
                     </Paper>
                 </Grid>
-                <Grid item xs={12} sm={12} md={12}>
+                <Grid item xs={12} sm={12} md={12} style={{ height: "31.5%" }}>
                     <Paper className={classes.paper} style={{ /* Chrome 10-25, Safari 5.1-6 */
                         background: "linear-gradient(to right,#7474bf, #348ac7)", /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                        height: "30%",
+                        height: "100%",
                     }}>
                         <Typography color={"inherit"} variant={"h2"}
                             style={{ position: "absolute", right: 40, marginTop: 12, opacity: 0.3 }}>-9%</Typography>
@@ -139,10 +142,10 @@ function Dashboard() {
 
                     </Paper>
                 </Grid>
-                <Grid item xs={12} sm={12} md={12}>
+                <Grid item xs={12} sm={12} md={12} style={{ height: "31.5%" }}>
                     <Paper className={classes.paper} style={{ /* Chrome 10-25, Safari 5.1-6 */
                         background: "linear-gradient(to right,#fc4a1a, #f7b733)", /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                        height: "30%",
+                        height: "100%",
                     }}>
                         <Typography color={"inherit"} variant={"h2"}
                             style={{ position: "absolute", right: 40, marginTop: 12, opacity: 0.3 }}>12%</Typography>
@@ -161,4 +164,4 @@ function Dashboard() {
     )
 }
 
-export default Dashboard;
+export default withWidth()(Dashboard);

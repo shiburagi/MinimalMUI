@@ -2,6 +2,7 @@
   "name": "materialui1",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://shiburagi.github.io/MinimalMUI",
   "dependencies": {
     "@material-ui/core": "^3.8.1",
     "@material-ui/icons": "^3.0.1",
@@ -17,6 +18,8 @@
     "recharts": "^1.4.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

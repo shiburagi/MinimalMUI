@@ -41,11 +41,10 @@ function App() {
     <main style={{
       flexGrow: 1,
       padding: 16,
+      overflowX:"hidden"
     }}>
       <div style={{
-
         height: 80
-        // ...theme.mixins.toolbar,
       }} />
       <div>
         {switchRoutes}
