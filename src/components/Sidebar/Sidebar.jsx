@@ -12,6 +12,7 @@ import classNames from 'classnames';
 import React from 'react';
 import { NavLink, withRouter } from "react-router-dom";
 import sidebarStyle from "../../assets/jss/components/sidebarStyle";
+import { Hidden } from '../../../node_modules/@material-ui/core';
 
 const isActiveRoute = (location, path) => {
     return location.pathname.includes(path)
@@ -19,50 +20,74 @@ const isActiveRoute = (location, path) => {
 
 const useStyles = makeStyles(sidebarStyle);
 
-function MiniDrawer({ open, onDrawerClose, routes, location }) {
+function MiniDrawer({ open,openMobile,  onDrawerClose, routes, location }) {
     const classes = useStyles();
     const theme = useTheme();
-    return (
 
-        <Drawer
-            variant="permanent"
-            className={classNames(classes.drawer, {
-                [classes.drawerOpen]: open,
-                [classes.drawerClose]: !open,
+    const renderList=()=>{
+        return (<List>
+            {routes.map((route, index) => {
+                if (!route.label)
+                    return null;
+                return (
+
+                    <NavLink key={index} to={route.path}>
+                        <ListItem button
+                            className={classNames(classes.listItem, {
+                                [classes.active]: isActiveRoute(location, route.path)
+                            })}
+                            onClick={onDrawerClose("mobile")}>
+                            {route.icon ? <ListItemIcon>{<route.icon />}</ListItemIcon> : null}
+                            <ListItemText primary={route.label} />
+                        </ListItem>
+                    </NavLink>
+                )
             })}
-            classes={{
-                paper: classNames({
-                    [classes.drawerOpen]: open,
-                    [classes.drawerClose]: !open,
-                }),
-            }}
-            open={open}
-        >
-            <div className={classes.toolbar}>
-                <IconButton onClick={onDrawerClose}>
-                    {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-                </IconButton>
-            </div>
-            <Divider />
-            <List>
-                {routes.map((route, index) => {
-                    if (!route.label)
-                        return null;
-                    return (
+        </List>)
+    }
+    return (
+        <React.Fragment>
+            <Hidden smDown>
+                <Drawer
+                    variant="permanent"
+                    className={classNames(classes.drawer, {
+                        [classes.drawerOpen]: open,
+                        [classes.drawerClose]: !open,
+                    })}
+                    classes={{
+                        paper: classNames({
+                            [classes.drawerOpen]: open,
+                            [classes.drawerClose]: !open,
+                        }),
+                    }}
+                    open={open}
+                >
+                    <div className={classes.toolbar}>
+                        <IconButton onClick={onDrawerClose("desktop")}>
+                            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                        </IconButton>
+                    </div>
+                    <Divider />
+                    {renderList()}
+                </Drawer>
+            </Hidden>
 
-                        <NavLink key={index} to={route.path}>
-                            <ListItem button 
-                                className={classNames(classes.listItem, {
-                                    [classes.active]: isActiveRoute(location, route.path)
-                                })}>
-                                {route.icon ? <ListItemIcon>{<route.icon />}</ListItemIcon> : null}
-                                <ListItemText primary={route.label} />
-                            </ListItem>
-                        </NavLink>
-                    )
-                })}
-            </List>
-        </Drawer>
+            <Hidden mdUp>
+                <Drawer
+                    variant="temporary"
+                    // classes={{
+                    //     paper: classes.drawerOpen
+                    // }}
+                    open={openMobile}
+                    onClose={onDrawerClose("mobile")}
+                >
+                    <div className={classes.toolbar}>
+                      
+                    </div>
+                    {renderList()}
+                </Drawer>
+            </Hidden>
+        </React.Fragment>
 
     );
 }

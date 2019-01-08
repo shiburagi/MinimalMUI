@@ -59,9 +59,18 @@ export default (theme => ({
     },
     active: {
         backgroundColor: fade(secondaryColor, 0.2),
+        borderLeft:`5px solid ${secondaryColor}`,
+        paddingLeft:19,
+        color:secondaryColor,
         "&:hover": {
             backgroundColor: fade(secondaryColor, 0.3),
 
+        },
+        "&>div":{
+            color:"inherit"
+        },
+        "& span":{
+            color:"inherit"
         }
     }
 }))

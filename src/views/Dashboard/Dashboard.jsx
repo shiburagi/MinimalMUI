@@ -50,15 +50,26 @@ const tableData = [
     createData('William', "2/12/2018", "Free", "Active", 0)
 ];
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme=>({
     paper: {
         padding: 24,
         margin: 6
+    },
+    cardPercentage: {
+        position: "absolute",
+        right: 40,
+        marginTop: 24,
+        opacity: 0.3
+    
+    },
+    cardMonth:{
+        opacity:0.8,
+        marginTop:12
     }
-})
-function Dashboard({width}) {
+}))
+function Dashboard({ width }) {
     const classes = useStyles();
-    const chartHeight = isWidthUp('md', width)?500:300;
+    const chartHeight = isWidthUp('md', width) ? 500 : 300;
     return (<div>
         <Grid container>
             <Grid item xs={12} sm={12} md={8}>
@@ -119,12 +130,13 @@ function Dashboard({width}) {
                         background: "linear-gradient(to right, #11998e, #38ef7d)", /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
                         height: "100%",
                     }}>
-                        <Typography color={"inherit"} variant={"h2"}
-                            style={{ position: "absolute", right: 40, marginTop: 12, opacity: 0.3 }}>25%</Typography>
+                        <Typography color={"inherit"} variant={"h3"}
+                            className={classes.cardPercentage}>25%</Typography>
 
                         <Typography color={"inherit"} variant={"subtitle1"} style={{ fontWeight: "bolder" }}>Revenue</Typography>
                         <Typography color={"inherit"} variant={"h4"}>$200,000</Typography>
-                        <Typography color={"inherit"} variant={"subtitle1"} style={{ marginTop: 8 }}>Oct</Typography>
+                        <Typography color={"inherit"} variant={"subtitle1"}
+                            className={classes.cardMonth}>Oct</Typography>
 
                     </Paper>
                 </Grid>
@@ -133,12 +145,13 @@ function Dashboard({width}) {
                         background: "linear-gradient(to right,#7474bf, #348ac7)", /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
                         height: "100%",
                     }}>
-                        <Typography color={"inherit"} variant={"h2"}
-                            style={{ position: "absolute", right: 40, marginTop: 12, opacity: 0.3 }}>-9%</Typography>
+                        <Typography color={"inherit"} variant={"h3"}
+                            className={classes.cardPercentage}>-9%</Typography>
 
                         <Typography color={"inherit"} variant={"subtitle1"} style={{ fontWeight: "bolder" }}>Revenue</Typography>
                         <Typography color={"inherit"} variant={"h4"}>$181,000</Typography>
-                        <Typography color={"inherit"} variant={"subtitle1"} style={{ marginTop: 8 }}>Nov</Typography>
+                        <Typography color={"inherit"} variant={"subtitle1"}
+                            className={classes.cardMonth}>Nov</Typography>
 
                     </Paper>
                 </Grid>
@@ -147,12 +160,13 @@ function Dashboard({width}) {
                         background: "linear-gradient(to right,#fc4a1a, #f7b733)", /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
                         height: "100%",
                     }}>
-                        <Typography color={"inherit"} variant={"h2"}
-                            style={{ position: "absolute", right: 40, marginTop: 12, opacity: 0.3 }}>12%</Typography>
+                        <Typography color={"inherit"} variant={"h3"}
+                            className={classes.cardPercentage}>12%</Typography>
 
                         <Typography color={"inherit"} variant={"subtitle1"} style={{ fontWeight: "bolder" }}>Revenue</Typography>
                         <Typography color={"inherit"} variant={"h4"}>$239,00</Typography>
-                        <Typography color={"inherit"} variant={"subtitle1"} style={{ marginTop: 8 }}>Dec</Typography>
+                        <Typography color={"inherit"} variant={"subtitle1"}
+                            className={classes.cardMonth}>Dec</Typography>
 
                     </Paper>
                 </Grid>

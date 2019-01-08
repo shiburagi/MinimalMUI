@@ -5,7 +5,7 @@ import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import dashboardRoutes from "../../routes/dashboard";
 import { createRoutes } from "../../routes/utils";
-import { CssBaseline, Typography } from "../../../node_modules/@material-ui/core";
+import { CssBaseline, Typography, Hidden } from "../../../node_modules/@material-ui/core";
 
 
 const useStyles = makeStyles(theme => ({
@@ -30,18 +30,23 @@ const switchRoutes = createRoutes(dashboardRoutes)
 function App() {
   // const classes = useStyles();
   const [open, setOpen] = useState();
+  const [openMobile, setOpenMobile] = useState();
   return (<div style={{
     display: 'flex',
   }}>
     <CssBaseline />
-
-    <Header collapse={open} onDrawerOpen={() => setOpen(true)} />
-    <Sidebar open={open} onDrawerClose={() => setOpen(false)} routes={dashboardRoutes} />
+    <Hidden smDown>
+      <Header collapse={open} onDrawerOpen={() => setOpen(true)} />
+    </Hidden>
+    <Hidden mdUp>
+      <Header collapse={false} onDrawerOpen={() => setOpenMobile(true)} />
+    </Hidden>
+    <Sidebar open={open} openMobile={openMobile} onDrawerClose={(type) => () => type === "mobile" ? setOpenMobile(false) : setOpen(false)} routes={dashboardRoutes} />
 
     <main style={{
       flexGrow: 1,
       padding: 16,
-      overflowX:"hidden"
+      overflowX: "hidden"
     }}>
       <div style={{
         height: 80

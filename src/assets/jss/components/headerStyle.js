@@ -1,5 +1,5 @@
 import { fade } from '@material-ui/core/styles/colorManipulator';
-import {drawerWidth} from "../index"
+import { drawerWidth } from "../index"
 const headerStyle = theme => {
     return {
         root: {
@@ -17,7 +17,7 @@ const headerStyle = theme => {
         },
         appBarShift: {
             marginLeft: drawerWidth,
-            paddingLeft:16,
+            paddingLeft: 16,
             width: `calc(100% - ${drawerWidth}px)`,
             transition: theme.transitions.create(['width', 'margin'], {
                 easing: theme.transitions.easing.sharp,
@@ -36,7 +36,10 @@ const headerStyle = theme => {
             marginRight: 36,
         },
         hide: {
-            display: 'none',
+            display: 'block',
+            [theme.breakpoints.up("md")]: {
+                display: 'none',
+            }
         },
         title: {
             display: 'none',
