@@ -50,7 +50,23 @@ const tableData = [
     createData('William', "2/12/2018", "Free", "Active", 0)
 ];
 
-const useStyles = makeStyles(theme=>({
+const Card = ({ classes, percentage, text, title, subtitle, background = "black" }) => {
+    return <Paper className={classes.paper} style={{ /* Chrome 10-25, Safari 5.1-6 */
+        background,
+        height: "100%",
+    }}>
+        <Typography color={"inherit"} variant={"h3"}
+            className={classes.cardPercentage}>{percentage}<span>%</span></Typography>
+
+        <Typography color={"inherit"} variant={"subtitle1"} style={{ fontWeight: "bolder" }}>{title}</Typography>
+        <Typography color={"inherit"} variant={"h4"}>{text}</Typography>
+        <Typography color={"inherit"} variant={"subtitle1"}
+            className={classes.cardMonth}>{subtitle}</Typography>
+
+    </Paper>
+}
+
+const useStyles = makeStyles(theme => ({
     paper: {
         padding: 24,
         margin: 6
@@ -59,12 +75,15 @@ const useStyles = makeStyles(theme=>({
         position: "absolute",
         right: 40,
         marginTop: 24,
-        opacity: 0.3
-    
+        opacity: 0.3,
+        "& span":{
+            fontSize:20
+        }
+
     },
-    cardMonth:{
-        opacity:0.8,
-        marginTop:12
+    cardMonth: {
+        opacity: 0.8,
+        marginTop: 12
     }
 }))
 function Dashboard({ width }) {
@@ -103,10 +122,10 @@ function Dashboard({ width }) {
                         >
                             <YAxis dataKey="name" type="category" />
                             <XAxis hide type="number" />
-                            <Tooltip />
-                            <Bar type="monotone" dataKey="twitter" fill="#1abc9c" />
-                            <Bar type="monotone" dataKey="facebook" fill="#f39c12" />
-                            <Bar type="monotone" dataKey="instagram" fill="#3498db" />
+                            <Tooltip cursor={{ fill: '#efefef', strokeWidth: 2 }}/>
+                            <Bar type="monotone" dataKey="twitter" fill="#1abc9c" opacity={0.6}/>
+                            <Bar type="monotone" dataKey="facebook" fill="#f39c12" opacity={0.6}/>
+                            <Bar type="monotone" dataKey="instagram" fill="#3498db" opacity={0.6}/>
 
                         </BarChart>
                     </ResponsiveContainer>
@@ -118,63 +137,38 @@ function Dashboard({ width }) {
             <Grid item xs={12} sm={12} md={9}>
                 <Paper square className={classes.paper}>
                     <Typography color={"secondary"} variant={"subtitle1"}>User Stats</Typography>
-                    <Table header={header} data={tableData} />
+                    <Table header={header} data={tableData} style={{
+                        marginTop:-48
+                    }}/>
                 </Paper>
             </Grid>
             <Grid item xs={12} sm={12} md={3} style={{
-                color: "white"
+                color: "white",
             }}>
 
-                <Grid item xs={12} sm={12} md={12} style={{ height: "31.5%" }}>
-                    <Paper className={classes.paper} style={{ /* Chrome 10-25, Safari 5.1-6 */
-                        background: "linear-gradient(to right, #11998e, #38ef7d)", /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                        height: "100%",
-                    }}>
-                        <Typography color={"inherit"} variant={"h3"}
-                            className={classes.cardPercentage}>25%</Typography>
-
-                        <Typography color={"inherit"} variant={"subtitle1"} style={{ fontWeight: "bolder" }}>Revenue</Typography>
-                        <Typography color={"inherit"} variant={"h4"}>$200,000</Typography>
-                        <Typography color={"inherit"} variant={"subtitle1"}
-                            className={classes.cardMonth}>Oct</Typography>
-
-                    </Paper>
+                <Grid item xs={12} sm={12} md={12} style={{ height: "29%" }}>
+                    <Card classes={classes} title={"Revenue"} text={"$200,000"} percentage={25}
+                        subtitle="Oct"
+                        background="linear-gradient(to right, #11998e, #38ef7d)"
+                    />
                 </Grid>
-                <Grid item xs={12} sm={12} md={12} style={{ height: "31.5%" }}>
-                    <Paper className={classes.paper} style={{ /* Chrome 10-25, Safari 5.1-6 */
-                        background: "linear-gradient(to right,#7474bf, #348ac7)", /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                        height: "100%",
-                    }}>
-                        <Typography color={"inherit"} variant={"h3"}
-                            className={classes.cardPercentage}>-9%</Typography>
+                <Grid item xs={12} sm={12} md={12} style={{ height: "29%" }}>
+                    <Card classes={classes} title={"Revenue"} text={"$181,000"} percentage={-9}
+                        subtitle="Nov"
+                        background="linear-gradient(to right,#7474bf, #348ac7)" />
 
-                        <Typography color={"inherit"} variant={"subtitle1"} style={{ fontWeight: "bolder" }}>Revenue</Typography>
-                        <Typography color={"inherit"} variant={"h4"}>$181,000</Typography>
-                        <Typography color={"inherit"} variant={"subtitle1"}
-                            className={classes.cardMonth}>Nov</Typography>
-
-                    </Paper>
                 </Grid>
-                <Grid item xs={12} sm={12} md={12} style={{ height: "31.5%" }}>
-                    <Paper className={classes.paper} style={{ /* Chrome 10-25, Safari 5.1-6 */
-                        background: "linear-gradient(to right,#fc4a1a, #f7b733)", /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                        height: "100%",
-                    }}>
-                        <Typography color={"inherit"} variant={"h3"}
-                            className={classes.cardPercentage}>12%</Typography>
+                <Grid item xs={12} sm={12} md={12} style={{ height: "29%" }}>
+                    <Card classes={classes} title={"Revenue"} text={"$239,000"} percentage={12}
+                        subtitle="Dec"
+                        background="linear-gradient(to right,#fc4a1a, #f7b733)" />
 
-                        <Typography color={"inherit"} variant={"subtitle1"} style={{ fontWeight: "bolder" }}>Revenue</Typography>
-                        <Typography color={"inherit"} variant={"h4"}>$239,00</Typography>
-                        <Typography color={"inherit"} variant={"subtitle1"}
-                            className={classes.cardMonth}>Dec</Typography>
-
-                    </Paper>
                 </Grid>
             </Grid>
 
 
         </Grid >
-    </div>
+    </div >
     )
 }
 

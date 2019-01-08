@@ -25,7 +25,7 @@ function MiniDrawer({ open,openMobile,  onDrawerClose, routes, location }) {
     const theme = useTheme();
 
     const renderList=()=>{
-        return (<List>
+        return (<List disablePadding={true}>
             {routes.map((route, index) => {
                 if (!route.label)
                     return null;

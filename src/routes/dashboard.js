@@ -9,9 +9,9 @@ const indexRoutes = [
                 component: require("views/Dashboard/Dashboard.jsx").default
         },
         {
-                path: "/user", label: "User",
+                path: "/profile", label: "Profile",
                 icon: UserIcon,
-                component: require("views/Dashboard/Dashboard.jsx").default
+                component: require("views/Profile/Profile.jsx").default
         },
         {
                 path: "/components", label: "Components",
@@ -19,8 +19,9 @@ const indexRoutes = [
                 component: require("views/Dashboard/Dashboard.jsx").default
         },
         {
+                redirect:true,
                 path: "/",
-                component: require("views/Dashboard/Dashboard.jsx").default
+                to:"/dashboard"
         },
 
 ];

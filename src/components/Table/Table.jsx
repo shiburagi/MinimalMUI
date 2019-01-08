@@ -181,7 +181,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-function EnhancedTable({ toolbarProps, header: rows, data: column = [] }) {
+function EnhancedTable({ toolbarProps, header: rows, data: column = [], ...props }) {
     const classes = useStyles();
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('calories');
@@ -238,7 +238,7 @@ function EnhancedTable({ toolbarProps, header: rows, data: column = [] }) {
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     return (
-        <React.Fragment>
+        <div {...props}>
             <EnhancedTableToolbar numSelected={selected.length}  {...toolbarProps} />
             <div className={classes.tableWrapper}>
                 <Table className={classes.table} aria-labelledby="tableTitle">
@@ -303,7 +303,7 @@ function EnhancedTable({ toolbarProps, header: rows, data: column = [] }) {
                 onChangePage={handleChangePage}
                 onChangeRowsPerPage={handleChangeRowsPerPage}
             />
-        </React.Fragment>
+        </div>
     );
 }
 
