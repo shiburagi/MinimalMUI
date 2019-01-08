@@ -1,13 +1,13 @@
 {
-  "main.css": "/MinimalMUI/static/css/main.eb79ef52.chunk.css",
-  "main.js": "/MinimalMUI/static/js/main.5d8d258e.chunk.js",
-  "main.js.map": "/MinimalMUI/static/js/main.5d8d258e.chunk.js.map",
-  "static/js/1.0fcfe558.chunk.js": "/MinimalMUI/static/js/1.0fcfe558.chunk.js",
-  "static/js/1.0fcfe558.chunk.js.map": "/MinimalMUI/static/js/1.0fcfe558.chunk.js.map",
+  "main.css": "/MinimalMUI/static/css/main.83ee3911.chunk.css",
+  "main.js": "/MinimalMUI/static/js/main.eb02b022.chunk.js",
+  "main.js.map": "/MinimalMUI/static/js/main.eb02b022.chunk.js.map",
+  "static/js/1.bf7327c5.chunk.js": "/MinimalMUI/static/js/1.bf7327c5.chunk.js",
+  "static/js/1.bf7327c5.chunk.js.map": "/MinimalMUI/static/js/1.bf7327c5.chunk.js.map",
   "runtime~main.js": "/MinimalMUI/static/js/runtime~main.870b7c16.js",
   "runtime~main.js.map": "/MinimalMUI/static/js/runtime~main.870b7c16.js.map",
-  "static/css/main.eb79ef52.chunk.css.map": "/MinimalMUI/static/css/main.eb79ef52.chunk.css.map",
+  "static/css/main.83ee3911.chunk.css.map": "/MinimalMUI/static/css/main.83ee3911.chunk.css.map",
   "index.html": "/MinimalMUI/index.html",
-  "precache-manifest.8599ce8f2b9eb3310109458c8d848ed7.js": "/MinimalMUI/precache-manifest.8599ce8f2b9eb3310109458c8d848ed7.js",
+  "precache-manifest.9f49932c760c3063725534fb5e3571e5.js": "/MinimalMUI/precache-manifest.9f49932c760c3063725534fb5e3571e5.js",
   "service-worker.js": "/MinimalMUI/service-worker.js"
 }
