@@ -100,7 +100,7 @@ function Dashboard({ width }) {
                         >
                             <YAxis dataKey="name" type="category" />
                             <XAxis hide type="number" />
-                            <Tooltip cursor={{ fill: '#efefef', strokeWidth: 2 }} />
+                            <Tooltip cursor={{ fill: 'rgba(0,0,0,0.1)', strokeWidth: 2 }} />
                             <Bar shape={<SquareBar />} type="monotone" dataKey="twitter" fill="#1abc9c" opacity={0.6} />
                             <Bar shape={<SquareBar />} type="monotone" dataKey="facebook" fill="#f39c12" opacity={0.6} />
                             <Bar shape={<SquareBar />} type="monotone" dataKey="instagram" fill="#3498db" opacity={0.6} />

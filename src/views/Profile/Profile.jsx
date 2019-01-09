@@ -30,7 +30,6 @@ function Profile() {
         <Grid container>
             <Grid className={classes.gridItem} item xs={12} sm={12} md={3}>
                 <Paper square style={{
-                    backgroundColor: "white",
                     minHeight: "70vh",
                 }}>
                     <div style={{
@@ -70,7 +69,6 @@ function Profile() {
             </Grid>
             <Grid className={classes.gridItem} item xs={12} sm={12} md={9}>
                 <Paper square style={{
-                    backgroundColor: "white",
                     minHeight: "80vh",
                 }}>
                     <Grid container style={{ padding: "16px 16px" }}>

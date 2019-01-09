@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { makeStyles } from "@material-ui/styles";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import dashboardRoutes from "../../routes/dashboard";
@@ -28,12 +28,18 @@ const useStyles = makeStyles(theme => ({
 const switchRoutes = createRoutes(dashboardRoutes)
 
 function App() {
-  // const classes = useStyles();
   const [open, setOpen] = useState();
   const [openMobile, setOpenMobile] = useState();
-  return (<div style={{
-    display: 'flex',
-  }}>
+  const mainEl = useRef(null);
+
+  useEffect(() => {
+    mainEl.current.scrollTop = 0
+  });
+
+  return (<div
+    style={{
+      display: 'flex',
+    }}>
     <CssBaseline />
     <Hidden smDown>
       <Header collapse={open} onDrawerOpen={() => setOpen(true)} />
@@ -43,11 +49,15 @@ function App() {
     </Hidden>
     <Sidebar open={open} openMobile={openMobile} onDrawerClose={(type) => () => type === "mobile" ? setOpenMobile(false) : setOpen(false)} routes={dashboardRoutes} />
 
-    <main style={{
-      flexGrow: 1,
-      padding: 16,
-      overflowX: "hidden"
-    }}>
+    <main
+      ref={mainEl}
+      style={{
+        flexGrow: 1,
+        padding: 16,
+        height:"100vh",
+        overflowX: "hidden",
+        overflowY: "auto"
+      }}>
       <div style={{
         height: 80
       }} />

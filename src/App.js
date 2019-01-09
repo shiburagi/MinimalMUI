@@ -9,14 +9,16 @@ import { MuiThemeProvider } from '../node_modules/@material-ui/core';
 
 function App(props) {
   return (
-    <MuiThemeProvider theme={defaultTheme}>
-    <ThemeProvider theme={defaultTheme}>
 
-      <Router basename="/">
-        {createRoutes(indexRoutes)}
-      </Router>
-    </ThemeProvider>
-    </MuiThemeProvider>
+
+    <Router basename="/">
+      <MuiThemeProvider theme={defaultTheme()}>
+        <ThemeProvider theme={defaultTheme()}>
+          {createRoutes(indexRoutes)}
+        </ThemeProvider>
+      </MuiThemeProvider>
+    </Router>
+
 
   );
 }

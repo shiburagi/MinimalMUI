@@ -16,8 +16,9 @@ import { makeStyles } from '@material-ui/styles';
 import React from 'react';
 import headerStyle from "../../assets/jss/components/headerStyle";
 import classNames from 'classnames';
-import { CssBaseline } from '../../../node_modules/@material-ui/core';
+import { CssBaseline, Button } from '../../../node_modules/@material-ui/core';
 import PropTypes from 'prop-types';
+import {withRouter} from "react-router-dom"
 
 const useStyles = makeStyles(headerStyle);
 
@@ -127,6 +128,14 @@ function Header({ collapse, onDrawerOpen }) {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
+            <Button variant="outlined" color={"inherit"} onClick={e=>{
+              localStorage.setItem("theme",localStorage.getItem("theme") !== "dark" ? "dark" : "light")
+              window.location.reload();
+
+            }}
+            style={{marginRight:8}}>
+              {localStorage.getItem("theme") !== "dark" ? "Night Mode" : "Light Mode"}
+            </Button>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <MailIcon />
@@ -161,8 +170,8 @@ function Header({ collapse, onDrawerOpen }) {
 
 
 Header.propTypes = {
-  collapse: PropTypes.bool, 
-  onDrawerOpen: PropTypes.func, 
+  collapse: PropTypes.bool,
+  onDrawerOpen: PropTypes.func,
 };
 
-export default Header;
+export default withRouter(Header);

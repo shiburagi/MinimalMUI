@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { Bar } from "recharts";
 
 const getPath = (x, y, width, height) => {
   return `M${x},${y + height}
@@ -23,13 +22,5 @@ SquareShape.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
 };
-
-
-// function SquareBar(props) {
-//   console.log(props)
-//   return (
-//     <Bar {...props} shape={<SquareShape />} />
-//   )
-// }
 
 export default SquareShape;
