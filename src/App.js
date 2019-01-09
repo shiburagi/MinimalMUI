@@ -9,9 +9,7 @@ import { MuiThemeProvider } from '../node_modules/@material-ui/core';
 
 function App(props) {
   return (
-
-
-    <Router basename="/">
+    <Router basename={window.location.hostname.includes("github")?"/MinimalMUI":"/"}>
       <MuiThemeProvider theme={defaultTheme()}>
         <ThemeProvider theme={defaultTheme()}>
           {createRoutes(indexRoutes)}

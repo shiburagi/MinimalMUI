@@ -49,7 +49,10 @@ function Header({ collapse, onDrawerOpen }) {
 
   const changeTheme = e => {
     localStorage.setItem("theme", localStorage.getItem("theme") !== "dark" ? "dark" : "light")
-    window.location.reload();
+    if (window.location.hostname.includes("github"))
+      window.location.href = "https://shiburagi.github.io/MinimalMUI"
+    else
+      window.location.reload();
 
   }
 

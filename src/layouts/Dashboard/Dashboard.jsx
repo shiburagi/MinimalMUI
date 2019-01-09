@@ -39,6 +39,8 @@ function App() {
   return (<div
     style={{
       display: 'flex',
+      overflowY: "hidden"
+
     }}>
     <CssBaseline />
     <Hidden smDown>
@@ -59,9 +61,12 @@ function App() {
         overflowY: "auto"
       }}>
       <div style={{
-        height: 80
+        height: 80,
+
       }} />
-      <div>
+      <div style={{
+
+      }}>
         {switchRoutes}
       </div>
 

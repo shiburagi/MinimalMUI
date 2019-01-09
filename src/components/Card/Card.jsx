@@ -27,7 +27,8 @@ function Card({ percentage, text, title, subtitle, background = "black" }) {
     const classes = useStyles();
     return <Paper className={classes.paper} style={{ /* Chrome 10-25, Safari 5.1-6 */
         background,
-        height: "100%",
+        margin:"6px 0",
+        height: "146px",
     }}>
         <Typography color={"inherit"} variant={"h3"}
             className={classes.cardPercentage}>{percentage}<span>%</span></Typography>

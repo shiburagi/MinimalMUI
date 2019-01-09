@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  overflow-y: hidden;
   font-family: 'Varela', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -14,4 +15,17 @@ code {
 
 a{
  text-decoration: none;
+}
+
+#root{
+  overflow: hidden;
+}
+
+@media (max-width: 991px) {
+  body,
+  html {
+      position: relative;
+      overflow: hidden;
+  }
+
 }

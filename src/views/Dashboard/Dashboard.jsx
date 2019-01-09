@@ -125,7 +125,7 @@ function Dashboard({ width }) {
             }}>
                 {
                     cards.map((card, index) => (
-                        <Grid key={index} item xs={12} sm={12} md={12} style={{ height: "29%" }}>
+                        <Grid key={index} item xs={12} sm={12} md={12} style={{  }}>
                             <Card {...card} />
                         </Grid>
                     ))
