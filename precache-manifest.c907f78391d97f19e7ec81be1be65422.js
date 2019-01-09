@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/MinimalMUI/static/js/runtime~main.870b7c16.js"
   },
   {
-    "revision": "aba1e2df93995e787827",
-    "url": "/MinimalMUI/static/js/main.aba1e2df.chunk.js"
+    "revision": "947be7932bd3fa7f473c",
+    "url": "/MinimalMUI/static/js/main.947be793.chunk.js"
   },
   {
     "revision": "e695aa8acc7cda4d4367",
     "url": "/MinimalMUI/static/js/1.e695aa8a.chunk.js"
   },
   {
-    "revision": "aba1e2df93995e787827",
+    "revision": "947be7932bd3fa7f473c",
     "url": "/MinimalMUI/static/css/main.0c93a822.chunk.css"
   },
   {
-    "revision": "5b97480669c5399f0ccab132c05cd48c",
+    "revision": "a5535e0cb4eb5282a8f0b640452b8e6b",
     "url": "/MinimalMUI/index.html"
   }
 ];
