@@ -3,7 +3,20 @@ import { makeStyles } from '@material-ui/styles';
 import React from 'react';
 import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { Chip, Grid, Paper, Switch, Typography } from '../../../node_modules/@material-ui/core';
+import Card from "../../components/Card/Card"
 import Table from "../../components/Table/Table";
+
+
+let counter = 0;
+function createData(name, date, type, status, option) {
+    counter += 1;
+    return {
+        id: counter, name, date,
+        type: <Chip label={type} color={type === "Premium" ? "secondary" : "default"} />,
+        status: <span style={{ color: status !== "Active" && "#999" }}>{status}</span>,
+        option: <Switch checked={option === 1} />
+    };
+}
 
 
 const data = [
@@ -29,17 +42,11 @@ const header = [
     { id: 'option', numeric: true, disablePadding: true, label: 'Option' },
 ];
 
-
-let counter = 0;
-function createData(name, date, type, status, option) {
-    counter += 1;
-    return {
-        id: counter, name, date,
-        type: <Chip label={type} color={type === "Premium" ? "secondary" : "default"} />,
-        status: <span style={{ color: status !== "Active" && "#999" }}>{status}</span>,
-        option: <Switch checked={option === 1} />
-    };
-}
+const cards = [
+    { percentage: 25, title: "Revenue", text: "$200,000", subtitle: "Oct", background: "linear-gradient(to right, #11998e, #38ef7d)" },
+    { percentage: -9, title: "Revenue", text: "$181,000", subtitle: "Nov", background: "linear-gradient(to right,#7474bf, #348ac7)" },
+    { percentage: 12, title: "Revenue", text: "$239,000", subtitle: "Dec", background: "linear-gradient(to right,#fc4a1a, #f7b733)" },
+]
 
 const tableData = [
     createData('John Smith', "2/12/2018", "Premium", "Active", 1),
@@ -50,40 +57,12 @@ const tableData = [
     createData('William', "2/12/2018", "Free", "Active", 0)
 ];
 
-const Card = ({ classes, percentage, text, title, subtitle, background = "black" }) => {
-    return <Paper className={classes.paper} style={{ /* Chrome 10-25, Safari 5.1-6 */
-        background,
-        height: "100%",
-    }}>
-        <Typography color={"inherit"} variant={"h3"}
-            className={classes.cardPercentage}>{percentage}<span>%</span></Typography>
 
-        <Typography color={"inherit"} variant={"subtitle1"} style={{ fontWeight: "bolder" }}>{title}</Typography>
-        <Typography color={"inherit"} variant={"h4"}>{text}</Typography>
-        <Typography color={"inherit"} variant={"subtitle1"}
-            className={classes.cardMonth}>{subtitle}</Typography>
-
-    </Paper>
-}
 
 const useStyles = makeStyles(theme => ({
     paper: {
         padding: 24,
         margin: 6
-    },
-    cardPercentage: {
-        position: "absolute",
-        right: 40,
-        marginTop: 24,
-        opacity: 0.3,
-        "& span":{
-            fontSize:20
-        }
-
-    },
-    cardMonth: {
-        opacity: 0.8,
-        marginTop: 12
     }
 }))
 function Dashboard({ width }) {
@@ -122,10 +101,10 @@ function Dashboard({ width }) {
                         >
                             <YAxis dataKey="name" type="category" />
                             <XAxis hide type="number" />
-                            <Tooltip cursor={{ fill: '#efefef', strokeWidth: 2 }}/>
-                            <Bar type="monotone" dataKey="twitter" fill="#1abc9c" opacity={0.6}/>
-                            <Bar type="monotone" dataKey="facebook" fill="#f39c12" opacity={0.6}/>
-                            <Bar type="monotone" dataKey="instagram" fill="#3498db" opacity={0.6}/>
+                            <Tooltip cursor={{ fill: '#efefef', strokeWidth: 2 }} />
+                            <Bar type="monotone" dataKey="twitter" fill="#1abc9c" opacity={0.6} />
+                            <Bar type="monotone" dataKey="facebook" fill="#f39c12" opacity={0.6} />
+                            <Bar type="monotone" dataKey="instagram" fill="#3498db" opacity={0.6} />
 
                         </BarChart>
                     </ResponsiveContainer>
@@ -138,21 +117,19 @@ function Dashboard({ width }) {
                 <Paper square className={classes.paper}>
                     <Typography color={"secondary"} variant={"subtitle1"}>User Stats</Typography>
                     <Table header={header} data={tableData} style={{
-                        marginTop:-48
-                    }}/>
+                        marginTop: -48
+                    }} />
                 </Paper>
             </Grid>
             <Grid item xs={12} sm={12} md={3} style={{
                 color: "white",
             }}>
+                {
 
-                <Grid item xs={12} sm={12} md={12} style={{ height: "29%" }}>
-                    <Card classes={classes} title={"Revenue"} text={"$200,000"} percentage={25}
-                        subtitle="Oct"
-                        background="linear-gradient(to right, #11998e, #38ef7d)"
-                    />
-                </Grid>
-                <Grid item xs={12} sm={12} md={12} style={{ height: "29%" }}>
+                    cards.map((card, index) => (<Grid key={index} item xs={12} sm={12} md={12} style={{ height: "29%" }}>
+                        <Card {...card}/>
+                    </Grid>))}
+                {/* <Grid item xs={12} sm={12} md={12} style={{ height: "29%" }}>
                     <Card classes={classes} title={"Revenue"} text={"$181,000"} percentage={-9}
                         subtitle="Nov"
                         background="linear-gradient(to right,#7474bf, #348ac7)" />
@@ -163,7 +140,7 @@ function Dashboard({ width }) {
                         subtitle="Dec"
                         background="linear-gradient(to right,#fc4a1a, #f7b733)" />
 
-                </Grid>
+                </Grid> */}
             </Grid>
 
 
