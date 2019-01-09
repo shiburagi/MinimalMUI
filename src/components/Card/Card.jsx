@@ -6,14 +6,17 @@ import PropTypes from 'prop-types';
 const useStyles = makeStyles(theme => ({
     paper: {
         padding: 24,
-        margin: 6
+        margin: "6px 0",
+        height: "146px",
     },
     cardPercentage: {
-        position: "absolute",
-        right: 40,
-        marginTop: 24,
+        position: "relative",
+        textAlign: "right",
+        right: 0,
+        top: 0,
+        marginTop: "-90px",
         opacity: 0.3,
-        "& span": {
+        "&>span": {
             fontSize: 20
         }
 
@@ -27,27 +30,29 @@ function Card({ percentage, text, title, subtitle, background = "black" }) {
     const classes = useStyles();
     return <Paper className={classes.paper} style={{ /* Chrome 10-25, Safari 5.1-6 */
         background,
-        margin:"6px 0",
-        height: "146px",
     }}>
-        <Typography color={"inherit"} variant={"h3"}
-            className={classes.cardPercentage}>{percentage}<span>%</span></Typography>
 
-        <Typography color={"inherit"} variant={"subtitle1"} style={{ fontWeight: "bolder" }}>{title}</Typography>
-        <Typography color={"inherit"} variant={"h4"}>{text}</Typography>
-        <Typography color={"inherit"} variant={"subtitle1"}
-            className={classes.cardMonth}>{subtitle}</Typography>
+        <div>
+            <Typography color={"inherit"} variant={"subtitle1"} style={{ fontWeight: "bolder" }}>{title}</Typography>
+            <Typography color={"inherit"} variant={"h4"}>{text}</Typography>
+            <Typography color={"inherit"} variant={"subtitle1"}
+                className={classes.cardMonth}>{subtitle}</Typography>
 
+            {percentage >= 0 ? <Typography color={"inherit"} variant={"h2"}
+                className={classes.cardPercentage}>{percentage}<span>%</span>
+            </Typography> : ""}
+
+        </div>
     </Paper>
 }
 
 
 Card.propTypes = {
-    title: PropTypes.string, 
-    text: PropTypes.string, 
-    subtitle: PropTypes.string, 
-    percentage: PropTypes.number, 
-    background: PropTypes.string, 
+    title: PropTypes.string,
+    text: PropTypes.string,
+    subtitle: PropTypes.string,
+    percentage: PropTypes.number,
+    background: PropTypes.string,
 };
 
 export default Card;
