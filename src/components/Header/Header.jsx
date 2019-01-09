@@ -6,19 +6,18 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import SearchIcon from '@material-ui/icons/Search';
 import { makeStyles } from '@material-ui/styles';
-import React from 'react';
-import headerStyle from "../../assets/jss/components/headerStyle";
 import classNames from 'classnames';
-import { CssBaseline, Button } from '../../../node_modules/@material-ui/core';
 import PropTypes from 'prop-types';
-import { withRouter } from "react-router-dom"
+import React from 'react';
+import { withRouter } from "react-router-dom";
+import { Avatar, Button, CssBaseline } from '../../../node_modules/@material-ui/core';
+import headerStyle from "../../assets/jss/components/headerStyle";
 
 const useStyles = makeStyles(headerStyle);
 
@@ -79,13 +78,17 @@ function Header({ collapse, onDrawerOpen }) {
       onClose={handleMobileMenuClose}
     >
 
-      <MenuItem onClick={changeTheme}>
+      <MenuItem
+        className={classes.menuItem}
+        onClick={changeTheme}>
         <IconButton color="inherit">
 
         </IconButton>
         <p>{themeButton}</p>
       </MenuItem>
-      <MenuItem>
+      <MenuItem
+        className={classes.menuItem}
+      >
         <IconButton color="inherit">
           <Badge badgeContent={4} color="secondary">
             <MailIcon />
@@ -93,7 +96,9 @@ function Header({ collapse, onDrawerOpen }) {
         </IconButton>
         <p>Messages</p>
       </MenuItem>
-      <MenuItem>
+      <MenuItem
+        className={classes.menuItem}
+      >
         <IconButton color="inherit">
           <Badge badgeContent={11} color="secondary">
             <NotificationsIcon />
@@ -101,9 +106,11 @@ function Header({ collapse, onDrawerOpen }) {
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
+      <MenuItem
+        className={classes.menuItem}
+        onClick={handleProfileMenuOpen}>
         <IconButton color="inherit">
-          <AccountCircle />
+          <Avatar src={require("../../assets/img/user1.jpg")} className={classes.avatar} />
         </IconButton>
         <p>Profile</p>
       </MenuItem>
@@ -164,14 +171,19 @@ function Header({ collapse, onDrawerOpen }) {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
+              style={{
+                marginLeft: 4,
+              }}
             >
-              <AccountCircle />
+              <Avatar src={require("../../assets/img/user1.jpg")} />
+
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
             <IconButton aria-haspopup="true" onClick={handleMobileMenuOpen} color="inherit">
               <MoreIcon />
             </IconButton>
+
           </div>
         </Toolbar>
       </AppBar>

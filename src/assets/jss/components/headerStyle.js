@@ -99,6 +99,14 @@ const headerStyle = theme => {
                 display: 'none',
             },
         },
+        avatar:{
+            width:32,
+            height:32,
+        }, 
+        menuItem:{
+            paddingLeft:8,
+            paddingRight:8,
+        }
     }
 }
 
