@@ -22,13 +22,13 @@ const isActiveRoute = (location, path) => {
 function SidebarTooltip({ classes, open, anchorEl, text }) {
     return (<Popper className={classes.popper} open={open} anchorEl={anchorEl} placement={"right"} transition>
         {({ TransitionProps }) => (
-          <Fade {...TransitionProps} timeout={350}>
-            <Paper className={classes.popperPaper} square>
-              <Typography className={classes.typography}>{text}</Typography>
-            </Paper>
-          </Fade>
+            <Fade {...TransitionProps} timeout={350}>
+                <Paper className={classes.popperPaper} square>
+                    <Typography className={classes.typography}>{text}</Typography>
+                </Paper>
+            </Fade>
         )}
-      </Popper>)
+    </Popper>)
 }
 
 const useStyles = makeStyles(sidebarStyle);
@@ -44,23 +44,23 @@ function Sidebar({ open, openMobile, onDrawerClose, routes, location }) {
         setText(null);
     }
 
-    const renderList = () => {
+    const renderList = (isMobile) => {
         return (<List disablePadding={true}>
             {routes.map((route, index) => {
                 if (!route.label)
                     return null;
                 return (
-                    <NavLink key={index} to={route.path}>
+                    <NavLink key={index} to={route.path}
+                        onClick={isMobile && onDrawerClose("mobile")}>
                         <ListItem button
-                            onMouseEnter={(e) => {
+                            onMouseEnter={!isMobile && ((e) => {
                                 setAnchorEl(e.currentTarget);
                                 setText(route.label);
-                            }}
-                            onMouseLeave={handleTooltipClose}
+                            })}
+                            onMouseLeave={!isMobile && handleTooltipClose}
                             className={classNames(classes.listItem, {
                                 [classes.active]: isActiveRoute(location, route.path)
-                            })}
-                            onClick={onDrawerClose("mobile")}>
+                            })}>
                             {route.icon ? <ListItemIcon>{<route.icon />}</ListItemIcon> : null}
                             <ListItemText primary={route.label} />
                         </ListItem>
@@ -92,7 +92,7 @@ function Sidebar({ open, openMobile, onDrawerClose, routes, location }) {
                         </IconButton>
                     </div>
                     <Divider />
-                    {renderList()}
+                    {renderList(false)}
                 </Drawer>
                 <SidebarTooltip classes={classes} open={Boolean(!open && anchorEl)}
                     text={text} anchorEl={anchorEl}
@@ -102,16 +102,13 @@ function Sidebar({ open, openMobile, onDrawerClose, routes, location }) {
             <Hidden mdUp>
                 <Drawer
                     variant="temporary"
-                    // classes={{
-                    //     paper: classes.drawerOpen
-                    // }}
                     open={openMobile}
                     onClose={onDrawerClose("mobile")}
                 >
                     <div className={classes.toolbar}>
 
                     </div>
-                    {renderList()}
+                    {renderList(true)}
                 </Drawer>
             </Hidden>
         </React.Fragment>
