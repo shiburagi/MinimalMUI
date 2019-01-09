@@ -18,7 +18,7 @@ import headerStyle from "../../assets/jss/components/headerStyle";
 import classNames from 'classnames';
 import { CssBaseline, Button } from '../../../node_modules/@material-ui/core';
 import PropTypes from 'prop-types';
-import {withRouter} from "react-router-dom"
+import { withRouter } from "react-router-dom"
 
 const useStyles = makeStyles(headerStyle);
 
@@ -47,6 +47,13 @@ function Header({ collapse, onDrawerOpen }) {
     setMobileMoreAnchorEl(event.currentTarget);
   }
 
+  const changeTheme = e => {
+    localStorage.setItem("theme", localStorage.getItem("theme") !== "dark" ? "dark" : "light")
+    window.location.reload();
+
+  }
+
+  const themeButton = localStorage.getItem("theme") !== "dark" ? "Night Mode" : "Light Mode";
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
@@ -68,6 +75,13 @@ function Header({ collapse, onDrawerOpen }) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+
+      <MenuItem onClick={changeTheme}>
+        <IconButton color="inherit">
+
+        </IconButton>
+        <p>{themeButton}</p>
+      </MenuItem>
       <MenuItem>
         <IconButton color="inherit">
           <Badge badgeContent={4} color="secondary">
@@ -128,13 +142,9 @@ function Header({ collapse, onDrawerOpen }) {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <Button variant="outlined" color={"inherit"} onClick={e=>{
-              localStorage.setItem("theme",localStorage.getItem("theme") !== "dark" ? "dark" : "light")
-              window.location.reload();
-
-            }}
-            style={{marginRight:8}}>
-              {localStorage.getItem("theme") !== "dark" ? "Night Mode" : "Light Mode"}
+            <Button variant="outlined" color={"inherit"} onClick={changeTheme}
+              style={{ marginRight: 8 }}>
+              {themeButton}
             </Button>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
