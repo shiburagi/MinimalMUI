@@ -123,9 +123,8 @@ const useToolbarStyles = makeStyles(theme => ({
     },
 }));
 
-const EnhancedTableToolbar = ({ title, ...props }) => {
+const EnhancedTableToolbar = ({ title,onDelete, onFilter,numSelected, ...props }) => {
     const classes = useToolbarStyles();
-    const { numSelected } = props;
 
     return (
         <Toolbar
@@ -148,13 +147,13 @@ const EnhancedTableToolbar = ({ title, ...props }) => {
             <div className={classes.actions}>
                 {numSelected > 0 ? (
                     <Tooltip title="Delete">
-                        <IconButton aria-label="Delete">
+                        <IconButton aria-label="Delete" onClick={onDelete}>
                             <DeleteIcon />
                         </IconButton>
                     </Tooltip>
                 ) : (
                         <Tooltip title="Filter list">
-                            <IconButton aria-label="Filter list">
+                            <IconButton aria-label="Filter list" onClick={onFilter}>
                                 <FilterListIcon />
                             </IconButton>
                         </Tooltip>
@@ -165,7 +164,10 @@ const EnhancedTableToolbar = ({ title, ...props }) => {
 };
 
 EnhancedTableToolbar.propTypes = {
+    title: PropTypes.string,
     numSelected: PropTypes.number.isRequired,
+    onDelete: PropTypes.func,
+    onFilter: PropTypes.func,
 };
 
 const useStyles = makeStyles(theme => ({
@@ -307,4 +309,10 @@ function EnhancedTable({ toolbarProps, header: rows, data: column = [], ...props
     );
 }
 
+
+EnhancedTable.propTypes = {
+    header: PropTypes.array, 
+    data: PropTypes.array,
+    toolbarProps:PropTypes.object, 
+};
 export default EnhancedTable;

@@ -1,7 +1,7 @@
 import React from "react"
 import { makeStyles } from "@material-ui/styles";
 import { Paper, Typography } from "../../../node_modules/@material-ui/core";
-
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
     paper: {
@@ -41,5 +41,12 @@ function Card({ percentage, text, title, subtitle, background = "black" }) {
 }
 
 
+Card.propTypes = {
+    title: PropTypes.string, 
+    text: PropTypes.string, 
+    subtitle: PropTypes.string, 
+    percentage: PropTypes.number, 
+    background: PropTypes.string, 
+};
 
 export default Card;

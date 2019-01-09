@@ -17,6 +17,7 @@ import React from 'react';
 import headerStyle from "../../assets/jss/components/headerStyle";
 import classNames from 'classnames';
 import { CssBaseline } from '../../../node_modules/@material-ui/core';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(headerStyle);
 
@@ -157,5 +158,11 @@ function Header({ collapse, onDrawerOpen }) {
     </div>
   );
 }
+
+
+Header.propTypes = {
+  collapse: PropTypes.bool, 
+  onDrawerOpen: PropTypes.func, 
+};
 
 export default Header;

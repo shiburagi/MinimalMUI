@@ -2,7 +2,7 @@ import React from "react"
 import Lottie from "react-lottie";
 import animationData from "../../assets/json/loading.json"
 
-function Loader(props) {
+function Loader() {
     const defaultOptions = {
         loop: true,
         autoplay: true,

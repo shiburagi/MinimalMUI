@@ -13,6 +13,7 @@ import React from 'react';
 import { NavLink, withRouter } from "react-router-dom";
 import sidebarStyle from "../../assets/jss/components/sidebarStyle";
 import { Hidden } from '../../../node_modules/@material-ui/core';
+import PropTypes from 'prop-types';
 
 const isActiveRoute = (location, path) => {
     return location.pathname.includes(path)
@@ -20,7 +21,7 @@ const isActiveRoute = (location, path) => {
 
 const useStyles = makeStyles(sidebarStyle);
 
-function MiniDrawer({ open,openMobile,  onDrawerClose, routes, location }) {
+function Sidebar({ open,openMobile,  onDrawerClose, routes, location }) {
     const classes = useStyles();
     const theme = useTheme();
 
@@ -92,4 +93,11 @@ function MiniDrawer({ open,openMobile,  onDrawerClose, routes, location }) {
     );
 }
 
-export default withRouter(MiniDrawer);
+Sidebar.propTypes = {
+    open: PropTypes.bool, 
+    openMobile: PropTypes.bool, 
+    onDrawerClose: PropTypes.func, 
+    routes: PropTypes.array.isRequired, 
+};
+
+export default withRouter(Sidebar);
