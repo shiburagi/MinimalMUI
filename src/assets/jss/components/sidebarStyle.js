@@ -59,18 +59,27 @@ export default (theme => ({
     },
     active: {
         backgroundColor: fade(secondaryColor, 0.2),
-        borderLeft:`5px solid ${secondaryColor}`,
-        paddingLeft:19,
-        color:secondaryColor,
+        borderLeft: `5px solid ${secondaryColor}`,
+        paddingLeft: 19,
+        color: secondaryColor,
         "&:hover": {
             backgroundColor: fade(secondaryColor, 0.3),
 
         },
-        "&>div":{
-            color:"inherit"
+        "&>div": {
+            color: "inherit"
         },
-        "& span":{
-            color:"inherit"
+        "& span": {
+            color: "inherit"
         }
-    }
+    },
+    popper: {
+        zIndex: theme.zIndex.drawer + 1,
+    },
+    popperPaper: {
+        width: 120,
+    },
+    typography: {
+        padding: theme.spacing.unit * 1.6,
+    },
 }))

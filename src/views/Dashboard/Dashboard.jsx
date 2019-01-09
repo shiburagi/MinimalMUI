@@ -5,7 +5,7 @@ import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Too
 import { Chip, Grid, Paper, Switch, Typography } from '../../../node_modules/@material-ui/core';
 import Card from "../../components/Card/Card"
 import Table from "../../components/Table/Table";
-
+import SquareBar from "../../components/Chart/SquareBar"
 
 let counter = 0;
 function createData(name, date, type, status, option) {
@@ -17,7 +17,6 @@ function createData(name, date, type, status, option) {
         option: <Switch checked={option === 1} />
     };
 }
-
 
 const data = [
     { name: 'Jan', facebook: 40, twitter: 24, instagram: 24, amt: 24 },
@@ -102,9 +101,9 @@ function Dashboard({ width }) {
                             <YAxis dataKey="name" type="category" />
                             <XAxis hide type="number" />
                             <Tooltip cursor={{ fill: '#efefef', strokeWidth: 2 }} />
-                            <Bar type="monotone" dataKey="twitter" fill="#1abc9c" opacity={0.6} />
-                            <Bar type="monotone" dataKey="facebook" fill="#f39c12" opacity={0.6} />
-                            <Bar type="monotone" dataKey="instagram" fill="#3498db" opacity={0.6} />
+                            <Bar shape={<SquareBar />} type="monotone" dataKey="twitter" fill="#1abc9c" opacity={0.6} />
+                            <Bar shape={<SquareBar />} type="monotone" dataKey="facebook" fill="#f39c12" opacity={0.6} />
+                            <Bar shape={<SquareBar />} type="monotone" dataKey="instagram" fill="#3498db" opacity={0.6} />
 
                         </BarChart>
                     </ResponsiveContainer>
@@ -125,22 +124,13 @@ function Dashboard({ width }) {
                 color: "white",
             }}>
                 {
+                    cards.map((card, index) => (
+                        <Grid key={index} item xs={12} sm={12} md={12} style={{ height: "29%" }}>
+                            <Card {...card} />
+                        </Grid>
+                    ))
+                }
 
-                    cards.map((card, index) => (<Grid key={index} item xs={12} sm={12} md={12} style={{ height: "29%" }}>
-                        <Card {...card}/>
-                    </Grid>))}
-                {/* <Grid item xs={12} sm={12} md={12} style={{ height: "29%" }}>
-                    <Card classes={classes} title={"Revenue"} text={"$181,000"} percentage={-9}
-                        subtitle="Nov"
-                        background="linear-gradient(to right,#7474bf, #348ac7)" />
-
-                </Grid>
-                <Grid item xs={12} sm={12} md={12} style={{ height: "29%" }}>
-                    <Card classes={classes} title={"Revenue"} text={"$239,000"} percentage={12}
-                        subtitle="Dec"
-                        background="linear-gradient(to right,#fc4a1a, #f7b733)" />
-
-                </Grid> */}
             </Grid>
 
 

@@ -9,31 +9,54 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import classNames from 'classnames';
-import React from 'react';
-import { NavLink, withRouter } from "react-router-dom";
-import sidebarStyle from "../../assets/jss/components/sidebarStyle";
-import { Hidden } from '../../../node_modules/@material-ui/core';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { NavLink, withRouter } from "react-router-dom";
+import { Fade, Hidden, Paper, Popper, Typography } from '../../../node_modules/@material-ui/core';
+import sidebarStyle from "../../assets/jss/components/sidebarStyle";
 
 const isActiveRoute = (location, path) => {
     return location.pathname.includes(path)
 }
 
+function SidebarTooltip({ classes, open, anchorEl, text }) {
+    return (<Popper className={classes.popper} open={open} anchorEl={anchorEl} placement={"right"} transition>
+        {({ TransitionProps }) => (
+          <Fade {...TransitionProps} timeout={350}>
+            <Paper className={classes.popperPaper} square>
+              <Typography className={classes.typography}>{text}</Typography>
+            </Paper>
+          </Fade>
+        )}
+      </Popper>)
+}
+
 const useStyles = makeStyles(sidebarStyle);
 
-function Sidebar({ open,openMobile,  onDrawerClose, routes, location }) {
+function Sidebar({ open, openMobile, onDrawerClose, routes, location }) {
     const classes = useStyles();
     const theme = useTheme();
 
-    const renderList=()=>{
+    const [text, setText] = useState();
+    const [anchorEl, setAnchorEl] = useState();
+    const handleTooltipClose = () => {
+        setAnchorEl(null);
+        setText(null);
+    }
+
+    const renderList = () => {
         return (<List disablePadding={true}>
             {routes.map((route, index) => {
                 if (!route.label)
                     return null;
                 return (
-
                     <NavLink key={index} to={route.path}>
                         <ListItem button
+                            onMouseEnter={(e) => {
+                                setAnchorEl(e.currentTarget);
+                                setText(route.label);
+                            }}
+                            onMouseLeave={handleTooltipClose}
                             className={classNames(classes.listItem, {
                                 [classes.active]: isActiveRoute(location, route.path)
                             })}
@@ -71,6 +94,9 @@ function Sidebar({ open,openMobile,  onDrawerClose, routes, location }) {
                     <Divider />
                     {renderList()}
                 </Drawer>
+                <SidebarTooltip classes={classes} open={Boolean(!open && anchorEl)}
+                    text={text} anchorEl={anchorEl}
+                    onClose={handleTooltipClose} />
             </Hidden>
 
             <Hidden mdUp>
@@ -83,7 +109,7 @@ function Sidebar({ open,openMobile,  onDrawerClose, routes, location }) {
                     onClose={onDrawerClose("mobile")}
                 >
                     <div className={classes.toolbar}>
-                      
+
                     </div>
                     {renderList()}
                 </Drawer>
@@ -94,10 +120,10 @@ function Sidebar({ open,openMobile,  onDrawerClose, routes, location }) {
 }
 
 Sidebar.propTypes = {
-    open: PropTypes.bool, 
-    openMobile: PropTypes.bool, 
-    onDrawerClose: PropTypes.func, 
-    routes: PropTypes.array.isRequired, 
+    open: PropTypes.bool,
+    openMobile: PropTypes.bool,
+    onDrawerClose: PropTypes.func,
+    routes: PropTypes.array.isRequired,
 };
 
 export default withRouter(Sidebar);
