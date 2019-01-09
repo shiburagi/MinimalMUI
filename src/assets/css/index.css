@@ -28,8 +28,7 @@ a{
       overflow: hidden;
   }
 
-}
-
-main{
-  -webkit-overflow-scrolling: touch;
+  main{
+    -webkit-overflow-scrolling: touch;
+  }
 }
