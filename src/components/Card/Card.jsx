@@ -6,7 +6,10 @@ import PropTypes from 'prop-types';
 const useStyles = makeStyles(theme => ({
     paper: {
         padding: 24,
+        marginTop: "2px",
         marginBottom: "6px",
+        marginLeft:2,
+        marginRight:2,
         height: "146px",
     },
     cardPercentage: {
