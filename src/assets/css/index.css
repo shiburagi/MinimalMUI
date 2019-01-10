@@ -28,7 +28,7 @@ a{
       overflow: hidden;
   }
 
-  main{
+  #main-panel{
     -webkit-overflow-scrolling: touch;
   }
 }

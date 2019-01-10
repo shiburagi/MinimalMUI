@@ -6,6 +6,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import dashboardRoutes from "../../routes/dashboard";
 import { createRoutes } from "../../routes/utils";
 import { CssBaseline, Typography, Hidden } from "../../../node_modules/@material-ui/core";
+import Footer from "../../components/Footer/Footer";
 
 
 const useStyles = makeStyles(theme => ({
@@ -51,28 +52,32 @@ function App() {
     </Hidden>
     <Sidebar open={open} openMobile={openMobile} onDrawerClose={(type) => () => type === "mobile" ? setOpenMobile(false) : setOpen(false)} routes={dashboardRoutes} />
 
-    <main
-      ref={mainEl}
+    <div id="main-panel" ref={mainEl}
       style={{
         flexGrow: 1,
-        // padding: 16,
         height: "100vh",
         overflowX: "hidden",
         overflowY: "auto"
       }}>
-      <div style={{
-        height: 64,
-
-      }} />
-      <div style={{
-        flex: 1,
-        height: "inherit"
+      <main style={{
+          minHeight: "calc(100% - 85px)"
 
       }}>
-        {switchRoutes}
-      </div>
+        <div style={{
+          height: 64,
 
-    </main>
+        }} />
+        <div style={{
+          flex: 1,
+          height: "100%"
+        }}>
+          {switchRoutes}
+
+        </div>
+
+      </main>
+      <Footer />
+    </div>
   </div>)
 
 

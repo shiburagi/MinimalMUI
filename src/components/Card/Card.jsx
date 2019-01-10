@@ -38,7 +38,7 @@ function Card({ percentage, text, title, subtitle, background = "black" }) {
             <Typography color={"inherit"} variant={"subtitle1"}
                 className={classes.cardMonth}>{subtitle}</Typography>
 
-            {percentage >= 0 ? <Typography color={"inherit"} variant={"h2"}
+            {percentage !== undefined && percentage !== null ? <Typography color={"inherit"} variant={"h2"}
                 className={classes.cardPercentage}>{percentage}<span>%</span>
             </Typography> : ""}
 
