@@ -1,18 +1,17 @@
-import React from 'react';
-import classNames from "classnames"
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { Fab, IconButton, Typography } from '../../../node_modules/@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
 import Icon from '@material-ui/core/Icon';
-import DeleteIcon from '@material-ui/icons/Delete';
-import NavigationIcon from '@material-ui/icons/Navigation';
+import AddIcon from '@material-ui/icons/Add';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import DeleteIcon from '@material-ui/icons/Delete';
 import KeyboardVoiceIcon from '@material-ui/icons/KeyboardVoice';
+import NavigationIcon from '@material-ui/icons/Navigation';
 import SaveIcon from '@material-ui/icons/Save';
+import { makeStyles } from '@material-ui/styles';
+import classNames from "classnames";
+import React from 'react';
+import { Fab, IconButton, Typography } from '../../../node_modules/@material-ui/core';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing.unit,
   },
@@ -37,10 +36,10 @@ const styles = theme => ({
   iconSmall: {
     fontSize: 20,
   },
-});
+}));
 
-function ContainedButtons(props) {
-  const { classes } = props;
+function Buttons() {
+  const classes = useStyles();
   return (
     <div style={{ padding: "16px 24px" }}>
       <Typography variant="h6" color="textSecondary">Contained Buttons</Typography>
@@ -267,8 +266,5 @@ function ContainedButtons(props) {
   );
 }
 
-ContainedButtons.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
-export default withStyles(styles)(ContainedButtons);
+export default Buttons;
