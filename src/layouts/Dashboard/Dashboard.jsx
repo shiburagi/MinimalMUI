@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const switchRoutes = createRoutes(dashboardRoutes)
+const switchRoutes = createRoutes(dashboardRoutes, "16px 12px")
 
 function App() {
   const [open, setOpen] = useState();
@@ -55,16 +55,18 @@ function App() {
       ref={mainEl}
       style={{
         flexGrow: 1,
-        padding: 16,
-        height:"100vh",
+        // padding: 16,
+        height: "100vh",
         overflowX: "hidden",
         overflowY: "auto"
       }}>
       <div style={{
-        height: 80,
+        height: 64,
 
       }} />
       <div style={{
+        flex: 1,
+        height: "inherit"
 
       }}>
         {switchRoutes}

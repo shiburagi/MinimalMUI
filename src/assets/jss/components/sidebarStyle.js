@@ -77,7 +77,7 @@ export default (theme => ({
         zIndex: theme.zIndex.drawer + 1,
     },
     popperPaper: {
-        width: 120,
+        width: 160,
     },
     typography: {
         padding: theme.spacing.unit * 1.6,

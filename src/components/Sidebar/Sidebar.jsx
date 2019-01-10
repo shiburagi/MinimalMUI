@@ -51,7 +51,7 @@ function Sidebar({ open, openMobile, onDrawerClose, routes, location }) {
                     return null;
                 return (
                     <NavLink key={index} to={route.path}
-                        onClick={isMobile && onDrawerClose("mobile")}>
+                        onClick={onDrawerClose("mobile")}>
                         <ListItem button
                             onMouseEnter={!isMobile && ((e) => {
                                 setAnchorEl(e.currentTarget);

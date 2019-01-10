@@ -18,10 +18,12 @@ import React from 'react';
 import { withRouter } from "react-router-dom";
 import { Avatar, Button, CssBaseline } from '../../../node_modules/@material-ui/core';
 import headerStyle from "../../assets/jss/components/headerStyle";
+import { connect } from "react-redux"
+import {changeTheme} from "../../actions"
 
 const useStyles = makeStyles(headerStyle);
 
-function Header({ collapse, onDrawerOpen }) {
+function Header({ collapse, onDrawerOpen, theme, dispatch }) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -46,16 +48,11 @@ function Header({ collapse, onDrawerOpen }) {
     setMobileMoreAnchorEl(event.currentTarget);
   }
 
-  const changeTheme = e => {
-    localStorage.setItem("theme", localStorage.getItem("theme") !== "dark" ? "dark" : "light")
-    if (window.location.hostname.includes("github"))
-      window.location.href = "https://shiburagi.github.io/MinimalMUI"
-    else
-      window.location.reload();
-
+  const onChangeTheme = e => {
+    dispatch(changeTheme(theme==="dark"?"light":"dark"));
   }
 
-  const themeButton = localStorage.getItem("theme") !== "dark" ? "Night Mode" : "Light Mode";
+  const themeButton = theme !== "dark" ? "Night Mode" : "Light Mode";
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
@@ -80,7 +77,7 @@ function Header({ collapse, onDrawerOpen }) {
 
       <MenuItem
         className={classes.menuItem}
-        onClick={changeTheme}>
+        onClick={onChangeTheme}>
         <IconButton color="inherit">
 
         </IconButton>
@@ -152,7 +149,7 @@ function Header({ collapse, onDrawerOpen }) {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <Button variant="outlined" color={"inherit"} onClick={changeTheme}
+            <Button variant="outlined" color={"inherit"} onClick={onChangeTheme}
               style={{ marginRight: 8 }}>
               {themeButton}
             </Button>
@@ -199,4 +196,6 @@ Header.propTypes = {
   onDrawerOpen: PropTypes.func,
 };
 
-export default withRouter(Header);
+export default connect(state => ({
+  theme: state.environment.theme
+}))(withRouter(Header));

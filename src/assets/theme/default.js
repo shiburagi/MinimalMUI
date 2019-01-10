@@ -7,8 +7,8 @@ import {
 import { fade } from '../../../node_modules/@material-ui/core/styles/colorManipulator';
 
 
-const theme = () => {
-    const isDarkTheme = localStorage.getItem("theme") === "dark"
+const createTheme = (theme) => {
+    const isDarkTheme = theme === "dark"
     const fontColor = !isDarkTheme ? "#000000" : "#ffffff";
     const fontColorWithAlpha87 = fade(fontColor, 0.87);
     const fontColorWithAlpha54 = fade(fontColor, 0.54);
@@ -184,4 +184,4 @@ const theme = () => {
     });
 }
 
-export default theme;
+export default createTheme;

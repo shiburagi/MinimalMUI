@@ -59,9 +59,11 @@ const tableData = [
 
 
 const useStyles = makeStyles(theme => ({
+    gridItem:{
+        padding:6
+    },
     paper: {
-        padding: 24,
-        margin: 6
+        padding: 24
     }
 }))
 function Dashboard({ width }) {
@@ -69,7 +71,7 @@ function Dashboard({ width }) {
     const chartHeight = isWidthUp('md', width) ? 500 : 300;
     return (<div>
         <Grid container>
-            <Grid item xs={12} sm={12} md={8}>
+            <Grid className={classes.gridItem} item xs={12} sm={12} md={8}>
                 <Paper square className={classes.paper}>
                     <Typography color={"secondary"} variant={"subtitle1"}>Overall Stats</Typography>
 
@@ -89,7 +91,7 @@ function Dashboard({ width }) {
 
                 </Paper>
             </Grid>
-            <Grid item xs={12} sm={12} md={4}>
+            <Grid className={classes.gridItem} item xs={12} sm={12} md={4}>
                 <Paper square className={classes.paper}>
                     <Typography color={"secondary"} variant={"subtitle1"}>Trends</Typography>
                     <ResponsiveContainer height={chartHeight}>
@@ -112,7 +114,7 @@ function Dashboard({ width }) {
         </Grid>
         <Grid container>
 
-            <Grid item xs={12} sm={12} md={9}>
+            <Grid className={classes.gridItem} item xs={12} sm={12} md={9}>
                 <Paper square className={classes.paper}>
                     <Typography color={"secondary"} variant={"subtitle1"}>User Stats</Typography>
                     <Table header={header} data={tableData} style={{
@@ -120,7 +122,7 @@ function Dashboard({ width }) {
                     }} />
                 </Paper>
             </Grid>
-            <Grid item xs={12} sm={12} md={3} style={{
+            <Grid className={classes.gridItem} item xs={12} sm={12} md={3} style={{
                 color: "white",
             }}>
                 {

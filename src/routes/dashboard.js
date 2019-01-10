@@ -3,6 +3,7 @@ import UserIcon from "@material-ui/icons/PersonOutline"
 import ComponentIcon from "@material-ui/icons/PaletteOutlined"
 import TypographyIcon from "@material-ui/icons/TextFormatOutlined"
 import IconIcon from "@material-ui/icons/BubbleChartOutlined"
+import MapIcon from "@material-ui/icons/MapOutlined"
 const indexRoutes = [
 
         {
@@ -28,7 +29,15 @@ const indexRoutes = [
         {
                 path: "/icon", label: "Icon",
                 icon: IconIcon,
-                component: require("views/Icon/Icon.jsx").default
+                component: require("views/Icon/Icon.jsx").default,
+                disablePadding:true
+
+        },
+        {
+                path: "/map", label: "Map",
+                icon: MapIcon,
+                component: require("views/Map/Map.jsx").default,
+                disablePadding:true
         },
         {
                 redirect:true,

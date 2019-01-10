@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const useStyles = makeStyles(theme => ({
     paper: {
         padding: 24,
-        margin: "6px 0",
+        marginBottom: "6px",
         height: "146px",
     },
     cardPercentage: {
@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 }))
 function Card({ percentage, text, title, subtitle, background = "black" }) {
     const classes = useStyles();
-    return <Paper className={classes.paper} style={{ /* Chrome 10-25, Safari 5.1-6 */
+    return <Paper className={classes.paper} style={{
         background,
     }}>
 

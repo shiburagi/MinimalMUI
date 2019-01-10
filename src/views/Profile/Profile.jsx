@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
         border: "1px solid white"
     },
     gridItem: {
-        padding: "8px"
+        padding: 6
     },
     textField: {
         marginLeft: theme.spacing.unit,
@@ -34,8 +34,10 @@ function Profile() {
                     paddingBottom:16
                 }}>
                     <div style={{
-                        background: "linear-gradient(to right, #E684AE, #79CBCA, #77A1D3)",
-                        height: 130
+                        // background: "linear-gradient(to right, #2196f3, #f44336)",
+                        background:`url(${require("../../assets/img/banner1.jpg")})`,
+                        backgroundPosition: "center",
+                        height: 140
                     }} />
                     <Avatar alt="Remy Sharp" src={require("../../assets/img/user1.jpg")} className={classes.avatar} />
                     <Typography variant={"subtitle2"} color="textSecondary" style={{
