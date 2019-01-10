@@ -1,7 +1,7 @@
 {
   "main.css": "/MinimalMUI/static/css/main.85c3d6e7.chunk.css",
-  "main.js": "/MinimalMUI/static/js/main.4c2b7b95.chunk.js",
-  "main.js.map": "/MinimalMUI/static/js/main.4c2b7b95.chunk.js.map",
+  "main.js": "/MinimalMUI/static/js/main.ccb0d020.chunk.js",
+  "main.js.map": "/MinimalMUI/static/js/main.ccb0d020.chunk.js.map",
   "static/js/1.ff7f6d6e.chunk.js": "/MinimalMUI/static/js/1.ff7f6d6e.chunk.js",
   "static/js/1.ff7f6d6e.chunk.js.map": "/MinimalMUI/static/js/1.ff7f6d6e.chunk.js.map",
   "runtime~main.js": "/MinimalMUI/static/js/runtime~main.870b7c16.js",
@@ -10,6 +10,6 @@
   "static/media/user1.jpg": "/MinimalMUI/static/media/user1.f3e43992.jpg",
   "static/media/banner1.jpg": "/MinimalMUI/static/media/banner1.b9fbb342.jpg",
   "index.html": "/MinimalMUI/index.html",
-  "precache-manifest.c42ea6b6d9fdc56d0b2690307caf534c.js": "/MinimalMUI/precache-manifest.c42ea6b6d9fdc56d0b2690307caf534c.js",
+  "precache-manifest.3493814526f5bb00848dd3017c0ed4b1.js": "/MinimalMUI/precache-manifest.3493814526f5bb00848dd3017c0ed4b1.js",
   "service-worker.js": "/MinimalMUI/service-worker.js"
 }
