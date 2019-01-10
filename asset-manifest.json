@@ -1,14 +1,15 @@
 {
-  "main.css": "/MinimalMUI/static/css/main.0c93a822.chunk.css",
-  "main.js": "/MinimalMUI/static/js/main.947be793.chunk.js",
-  "main.js.map": "/MinimalMUI/static/js/main.947be793.chunk.js.map",
-  "static/js/1.e695aa8a.chunk.js": "/MinimalMUI/static/js/1.e695aa8a.chunk.js",
-  "static/js/1.e695aa8a.chunk.js.map": "/MinimalMUI/static/js/1.e695aa8a.chunk.js.map",
+  "main.css": "/MinimalMUI/static/css/main.12e30476.chunk.css",
+  "main.js": "/MinimalMUI/static/js/main.8c5ddb5f.chunk.js",
+  "main.js.map": "/MinimalMUI/static/js/main.8c5ddb5f.chunk.js.map",
+  "static/js/1.c51c19cc.chunk.js": "/MinimalMUI/static/js/1.c51c19cc.chunk.js",
+  "static/js/1.c51c19cc.chunk.js.map": "/MinimalMUI/static/js/1.c51c19cc.chunk.js.map",
   "runtime~main.js": "/MinimalMUI/static/js/runtime~main.870b7c16.js",
   "runtime~main.js.map": "/MinimalMUI/static/js/runtime~main.870b7c16.js.map",
+  "static/css/main.12e30476.chunk.css.map": "/MinimalMUI/static/css/main.12e30476.chunk.css.map",
   "static/media/user1.jpg": "/MinimalMUI/static/media/user1.f3e43992.jpg",
-  "static/css/main.0c93a822.chunk.css.map": "/MinimalMUI/static/css/main.0c93a822.chunk.css.map",
+  "static/media/banner1.jpg": "/MinimalMUI/static/media/banner1.b9fbb342.jpg",
   "index.html": "/MinimalMUI/index.html",
-  "precache-manifest.c907f78391d97f19e7ec81be1be65422.js": "/MinimalMUI/precache-manifest.c907f78391d97f19e7ec81be1be65422.js",
+  "precache-manifest.32410ba5d1c4883ba5fba5ed73d60098.js": "/MinimalMUI/precache-manifest.32410ba5d1c4883ba5fba5ed73d60098.js",
   "service-worker.js": "/MinimalMUI/service-worker.js"
 }
