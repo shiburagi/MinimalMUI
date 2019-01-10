@@ -19,6 +19,8 @@
 
 
 ### Dependencies
+File Structure
+```
 ├── README.md
 ├── package.json
 ├── public
@@ -90,3 +92,4 @@
       |  └── Profile.jsx
       └── Typography
          └── Typography.jsx
+```
