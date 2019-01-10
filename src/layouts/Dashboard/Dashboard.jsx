@@ -69,7 +69,7 @@ function App() {
         }} />
         <div style={{
           flex: 1,
-          height: "100%"
+
         }}>
           {switchRoutes}
 

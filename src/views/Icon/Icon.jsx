@@ -5,7 +5,7 @@ import React from 'react';
 const styles = {
   root: {
     width: '100%',
-    height: "inherit"
+    height: "calc(100vh - 149px)"
   },
 };
 
