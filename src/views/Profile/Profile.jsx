@@ -200,7 +200,7 @@ function Profile() {
             </Grid>
             <Grid className={classes.gridItem} item xs={12} sm={12} md={12}>
                 <Paper square style={{
-                    minHeight: "10vh",
+                    minHeight: "24px",
                 }}>
                     <Grid container style={{ padding: "16px 16px" }}>
                         <Grid item xs={12} sm={12} md={12} className={classes.gridItem}>
