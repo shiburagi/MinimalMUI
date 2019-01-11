@@ -211,7 +211,7 @@ function Profile() {
                         </Grid>
                         {
                             cards.map((card, index) => (
-                                <Grid key={index} item xs={12} sm={12} md={4} className={classes.gridItem} >
+                                <Grid key={index} item xs={12} sm={12} md={4} lg={3} className={classes.gridItem} >
                                     <CreditCard {...card} />
                                 </Grid>)
                             )
