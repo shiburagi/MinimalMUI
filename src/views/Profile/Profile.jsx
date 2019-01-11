@@ -1,7 +1,32 @@
 
 import { makeStyles } from "@material-ui/styles";
 import React from "react";
-import { Avatar, Button, FormControl, FormControlLabel, Grid, Paper, Radio, RadioGroup, TextField, Typography } from "../../../node_modules/@material-ui/core";
+import { Avatar, Divider, FormControl, FormControlLabel, Grid, Paper, Radio, RadioGroup, TextField, Typography, Fab } from "../../../node_modules/@material-ui/core";
+import CreditCard from "../../components/Card/CreditCard";
+
+
+const cards = [
+    {
+        cardNumber: "**** **** **** 0982",
+        expireDate: "01/22",
+        cardType: "visa"
+    },
+    {
+        cardNumber: "**** **** **** 0982",
+        expireDate: "01/22",
+        cardType: "mastercard"
+    },
+    {
+        cardNumber: "**** **** **** 0982",
+        expireDate: "01/22",
+        cardType: "amex"
+    },
+    {
+        cardNumber: "**** **** **** 0982",
+        expireDate: "01/22",
+        cardType: "mastercard"
+    }
+]
 
 const useStyles = makeStyles(theme => ({
     avatar: {
@@ -24,18 +49,23 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
+const Heading = ({ title, buttonName, onActionClick }) => (
+    <React.Fragment>
+        <Typography variant="h6" style={{ float: "left", margin: "8px 0" }}>{title}</Typography>
+        <Fab variant="extended" color="secondary" style={{ float: "right" }} onClick={onActionClick}>{buttonName}</Fab>
+    </React.Fragment>
+)
 function Profile() {
     const classes = useStyles();
     return (
         <Grid container>
             <Grid className={classes.gridItem} item xs={12} sm={12} md={3}>
                 <Paper square style={{
-                    minHeight: "40vh",
-                    paddingBottom:16
+                    height:"100%",
+                    paddingBottom: 16
                 }}>
                     <div style={{
-                        // background: "linear-gradient(to right, #2196f3, #f44336)",
-                        background:`url(${require("../../assets/img/banner1.jpg")})`,
+                        background: `url(${require("../../assets/img/banner1.jpg")})`,
                         backgroundPosition: "center",
                         height: 140
                     }} />
@@ -72,16 +102,15 @@ function Profile() {
             </Grid>
             <Grid className={classes.gridItem} item xs={12} sm={12} md={9}>
                 <Paper square style={{
-                    minHeight: "50vh",
+                    height:"100%",
+
                 }}>
                     <Grid container style={{ padding: "16px 16px" }}>
-                        <Grid item xs={12} sm={12} md={12} className={classes.gridItem}
-                            style={{
-                                textAlign: "right"
-                            }}>
-                            <Button variant="contained" color="secondary" >
-                                Save
-                            </Button>
+                        <Grid item xs={12} sm={12} md={12} className={classes.gridItem}>
+                            <Heading title="BasIc information" buttonName="update" />
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={12} style={{ marginBottom: 16, marginTop: 8 }}>
+                            <Divider />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} className={classes.gridItem} >
                             <Typography style={{ marginLeft: 8 }}>First Name</Typography>
@@ -166,6 +195,27 @@ function Profile() {
                                 variant="outlined"
                             />
                         </Grid>
+                    </Grid>
+                </Paper>
+            </Grid>
+            <Grid className={classes.gridItem} item xs={12} sm={12} md={12}>
+                <Paper square style={{
+                    minHeight: "10vh",
+                }}>
+                    <Grid container style={{ padding: "16px 16px" }}>
+                        <Grid item xs={12} sm={12} md={12} className={classes.gridItem}>
+                            <Heading title="My Wallets" buttonName="Add" />
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={12} style={{ marginBottom: 16, marginTop: 8 }}>
+                            <Divider />
+                        </Grid>
+                        {
+                            cards.map((card, index) => (
+                                <Grid key={index} item xs={12} sm={12} md={4} className={classes.gridItem} >
+                                    <CreditCard {...card} />
+                                </Grid>)
+                            )
+                        }
                     </Grid>
                 </Paper>
             </Grid>
