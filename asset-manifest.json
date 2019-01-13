@@ -1,9 +1,9 @@
 {
   "main.css": "/MinimalMUI/static/css/main.1f3578ef.chunk.css",
-  "main.js": "/MinimalMUI/static/js/main.01e61b45.chunk.js",
-  "main.js.map": "/MinimalMUI/static/js/main.01e61b45.chunk.js.map",
-  "static/js/1.dc08a292.chunk.js": "/MinimalMUI/static/js/1.dc08a292.chunk.js",
-  "static/js/1.dc08a292.chunk.js.map": "/MinimalMUI/static/js/1.dc08a292.chunk.js.map",
+  "main.js": "/MinimalMUI/static/js/main.5144c470.chunk.js",
+  "main.js.map": "/MinimalMUI/static/js/main.5144c470.chunk.js.map",
+  "static/js/1.23530f29.chunk.js": "/MinimalMUI/static/js/1.23530f29.chunk.js",
+  "static/js/1.23530f29.chunk.js.map": "/MinimalMUI/static/js/1.23530f29.chunk.js.map",
   "runtime~main.js": "/MinimalMUI/static/js/runtime~main.870b7c16.js",
   "runtime~main.js.map": "/MinimalMUI/static/js/runtime~main.870b7c16.js.map",
   "static/media/user1.jpg": "/MinimalMUI/static/media/user1.f3e43992.jpg",
@@ -13,6 +13,6 @@
   "static/media/amex.svg": "/MinimalMUI/static/media/amex.b04073e5.svg",
   "static/css/main.1f3578ef.chunk.css.map": "/MinimalMUI/static/css/main.1f3578ef.chunk.css.map",
   "index.html": "/MinimalMUI/index.html",
-  "precache-manifest.394f59fa5178229cf2f49bfdaf317d7d.js": "/MinimalMUI/precache-manifest.394f59fa5178229cf2f49bfdaf317d7d.js",
+  "precache-manifest.e82367ffec7d916d7d7736deb96f9cb2.js": "/MinimalMUI/precache-manifest.e82367ffec7d916d7d7736deb96f9cb2.js",
   "service-worker.js": "/MinimalMUI/service-worker.js"
 }
