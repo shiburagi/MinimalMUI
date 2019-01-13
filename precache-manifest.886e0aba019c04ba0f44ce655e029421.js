@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/MinimalMUI/static/css/main.85c3d6e7.chunk.css"
   },
   {
-    "revision": "86cd3e82d889f2c0372bd501c707e0fd",
+    "revision": "b093a1b3b16e63bcecb96755e9844214",
     "url": "/MinimalMUI/index.html"
   }
 ];
