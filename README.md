@@ -16,10 +16,13 @@
 ### Inspiration
 - [Dashboard Page - (Freebie - Dashboard Design With Adobe XD)](https://www.uplabs.com/posts/dashboard-design-with-adobe-xd-freebie)
 - [Footer - (Basic Footer (animated))](https://www.uplabs.com/posts/basic-footer-animated)
+- [Credit Card - (My Wallets Expenses)](https://www.uplabs.com/posts/my-wallets-expenses)
 
+### Photo
+- https://www.pexels.com/photo/man-wearing-eyeglasses-839586/
+- https://www.pexels.com/photo/bokeh-night-lights-city-9044/
 
-### Dependencies
-File Structure
+### File Structure
 ```
 ├── README.md
 ├── package.json
