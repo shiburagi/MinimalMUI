@@ -15,15 +15,14 @@ import { makeStyles } from '@material-ui/styles';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { Avatar, Button, CssBaseline } from '../../../node_modules/@material-ui/core';
+import { Avatar, CssBaseline } from '../../../node_modules/@material-ui/core';
 import headerStyle from "../../assets/jss/components/headerStyle";
-import { connect } from "react-redux"
-import {changeTheme} from "../../actions"
 
 const useStyles = makeStyles(headerStyle);
 
-function Header({ collapse, onDrawerOpen, theme, dispatch }) {
+function Header({ collapse, onDrawerOpen, toolbarColor }) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -47,12 +46,6 @@ function Header({ collapse, onDrawerOpen, theme, dispatch }) {
   function handleMobileMenuOpen(event) {
     setMobileMoreAnchorEl(event.currentTarget);
   }
-
-  const onChangeTheme = e => {
-    dispatch(changeTheme(theme==="dark"?"light":"dark"));
-  }
-
-  const themeButton = theme !== "dark" ? "Night Mode" : "Light Mode";
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
@@ -75,14 +68,6 @@ function Header({ collapse, onDrawerOpen, theme, dispatch }) {
       onClose={handleMobileMenuClose}
     >
 
-      <MenuItem
-        className={classes.menuItem}
-        onClick={onChangeTheme}>
-        <IconButton color="inherit">
-
-        </IconButton>
-        <p>{themeButton}</p>
-      </MenuItem>
       <MenuItem
         className={classes.menuItem}
       >
@@ -119,6 +104,8 @@ function Header({ collapse, onDrawerOpen, theme, dispatch }) {
       <CssBaseline />
 
       <AppBar position="fixed"
+        color={toolbarColor ? toolbarColor : "primary"}
+
         className={classNames(classes.appBar, {
           [classes.appBarShift]: collapse,
         })}>
@@ -149,10 +136,7 @@ function Header({ collapse, onDrawerOpen, theme, dispatch }) {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <Button variant="outlined" color={"inherit"} onClick={onChangeTheme}
-              style={{ marginRight: 8 }}>
-              {themeButton}
-            </Button>
+
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <MailIcon />
@@ -197,5 +181,5 @@ Header.propTypes = {
 };
 
 export default connect(state => ({
-  theme: state.environment.theme
+  toolbarColor: state.environment.toolbarColor
 }))(withRouter(Header));

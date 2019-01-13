@@ -27,14 +27,16 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const switchRoutes = createRoutes(dashboardRoutes, "16px 12px")
-
-function App() {
+let previousLocation = {};
+function App({location}) {
   const [open, setOpen] = useState();
   const [openMobile, setOpenMobile] = useState();
   const mainEl = useRef(null);
 
   useEffect(() => {
-    mainEl.current.scrollTop = 0
+    if (previousLocation.pathname !== location.pathname)
+      mainEl.current.scrollTop = 0
+    previousLocation = location;
   });
 
   return (<div
@@ -60,7 +62,7 @@ function App() {
         overflowY: "auto"
       }}>
       <main style={{
-          minHeight: "calc(100% - 85px)"
+        minHeight: "calc(100% - 85px)"
 
       }}>
         <div style={{
