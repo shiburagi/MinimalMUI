@@ -107,7 +107,7 @@ function Profile() {
                 }}>
                     <Grid container style={{ padding: "16px 16px" }}>
                         <Grid item xs={12} sm={12} md={12} className={classes.gridItem}>
-                            <Heading title="BasIc information" buttonName="update" />
+                            <Heading title="Basic information" buttonName="update" />
                         </Grid>
                         <Grid item xs={12} sm={12} md={12} style={{ marginBottom: 16, marginTop: 8 }}>
                             <Divider />
