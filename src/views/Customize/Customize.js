@@ -32,7 +32,8 @@ const useStyles = makeStyles(theme => ({
         top: "140px",
         height: "480px",
         border: "1px solid " + theme.palette.divider,
-        overflowY:"hidden"
+        overflowY: "hidden",
+        maxHeight: "60vh"
 
     },
     drawer: {
@@ -64,7 +65,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-function Customize({ _theme, toolbarColor, primaryColor, secondaryColor , dispatch }) {
+function Customize({ _theme, toolbarColor, primaryColor, secondaryColor, dispatch }) {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(true);
@@ -119,7 +120,8 @@ function Customize({ _theme, toolbarColor, primaryColor, secondaryColor , dispat
                     </div>
                     <div style={{
                         padding: 16,
-                        overflowY:"auto"
+                        paddingBottom: 48,
+                        overflowY: "auto"
                     }}>
                         <Typography variant="subtitle1">Theme</Typography>
                         <div style={{ display: "flex" }}>
@@ -135,7 +137,7 @@ function Customize({ _theme, toolbarColor, primaryColor, secondaryColor , dispat
                         </div>
 
                         <br />
-                        <Typography  variant="subtitle1">App Bar Color</Typography>
+                        <Typography variant="subtitle1">App Bar Color</Typography>
                         <div style={{ display: "flex" }}>
                             <ToggleButtonGroup value={toolbarColor} exclusive
                                 onChange={(e, toolbarColor) => dispatch(changeToolbarColor(toolbarColor))}>
@@ -151,16 +153,29 @@ function Customize({ _theme, toolbarColor, primaryColor, secondaryColor , dispat
                             </ToggleButtonGroup>
                         </div>
                         <br />
-                        <Typography  variant="subtitle1">Primary Color</Typography>
+                        <Typography variant="subtitle1">Primary Color</Typography>
                         <ColorPicker color={primaryColor} onChange={({ hex }) => {
                             dispatch(changePrimaryColor(hex))
                         }} />
                         <br />
 
-                        <Typography  variant="subtitle1">Secondary Color</Typography>
+                        <Typography variant="subtitle1">Secondary Color</Typography>
                         <ColorPicker color={secondaryColor} onChange={({ hex }) => {
                             dispatch(changeSecondaryColor(hex))
                         }} />
+                        <Button color="secondary" variant="contained" onClick={e=>{
+                            dispatch(changeTheme());
+                            dispatch(changeToolbarColor());
+                            dispatch(changePrimaryColor())
+                            dispatch(changeSecondaryColor());
+                        }} style={{
+                            left: theme.spacing.unit * 5 + 1,
+                            position: "absolute",
+                            borderRadius: 0,
+                            bottom: 0,
+                            right: 0,
+                            width: `calc(100% - ${theme.spacing.unit * 5 + 1}px)`
+                        }}>Reset</Button>
 
                     </div>
                 </div>
@@ -173,7 +188,7 @@ function Customize({ _theme, toolbarColor, primaryColor, secondaryColor , dispat
 export default connect(state => ({
     _theme: state.environment.theme,
     toolbarColor: state.environment.toolbarColor,
-    primaryColor: state.environment.primaryColor?state.environment.primaryColor:primaryColor,
-    secondaryColor: state.environment.secondaryColor?state.environment.secondaryColor:secondaryColor,
+    primaryColor: state.environment.primaryColor ? state.environment.primaryColor : primaryColor,
+    secondaryColor: state.environment.secondaryColor ? state.environment.secondaryColor : secondaryColor,
 
 }))(Customize);

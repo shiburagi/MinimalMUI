@@ -8,13 +8,11 @@ import { fade } from '../../../node_modules/@material-ui/core/styles/colorManipu
 
 
 const createTheme = (theme, _primaryColor, _secondaryColor) => {
-    let primaryColor = _primaryColor ? _primaryColor : primary
-    let secondaryColor = _secondaryColor ? _secondaryColor : secondary
+    let primaryColor = _primaryColor && _primaryColor !== "undefined" ? _primaryColor : primary
+    let secondaryColor = _secondaryColor && _secondaryColor !== "undefined" ? _secondaryColor : secondary
     const isDarkTheme = theme === "dark"
     const fontColor = !isDarkTheme ? "#000000" : "#ffffff";
-    // const fontColorWithAlpha87 = fade(fontColor, 0.87);
-    // const fontColorWithAlpha54 = fade(fontColor, 0.54);
-    // const fontColorWithAlpha38 = fade(fontColor, 0.38);
+ 
 
     const backgroundColor = !isDarkTheme ? "#ffffff" : "#263238";
     const defaultBackgroundColor = !isDarkTheme ? "#fafafa" : "#34495e";
@@ -31,29 +29,18 @@ const createTheme = (theme, _primaryColor, _secondaryColor) => {
                 paper: backgroundColor,
                 default: defaultBackgroundColor
             },
-            // text: {
-            //     primary: fontColorWithAlpha87,
-            //     secondary: fontColorWithAlpha54,
-            //     disabled: fontColorWithAlpha38,
-            //     hint: fontColorWithAlpha38
-            // },
-            // typography: {
-            //     button: {
-            //         color: fontColorWithAlpha87
-            //     }
-            // }
         },
         overrides: {
             MuiAppBar: {
             },
             Sidebar: {
                 itemText: {
-                    // color: fontColor
+                    
                 }
             },
             MuiListItemIcon: {
                 root: {
-                    // color: fontColorWithAlpha54
+                    
                 }
             },
             MuiListItem: {
@@ -65,25 +52,24 @@ const createTheme = (theme, _primaryColor, _secondaryColor) => {
             },
             MuiListItemText: {
                 root: {
-                    // color: fontColorWithAlpha54,
+                    
 
                 }
             },
             MuiSelect: {
                 root: {
                     "& fieldset": {
-                        // borderColor: fontColor
                     }
                 },
                 icon: {
-                    // color: fontColor
+                    
                 }
             },
             MuiButton: {
 
                 contained: {
                     backgroundColor: defaultBackgroundColor,
-                    // color: fontColor,
+                    
                     "&:hover": {
                         backgroundColor: backgroundColor,
                     }
@@ -91,7 +77,7 @@ const createTheme = (theme, _primaryColor, _secondaryColor) => {
             },
             MuiIconButton: {
                 root: {
-                    // color: fontColorWithAlpha54,
+                    
                     width: 48,
                     height: 48,
                     padding: 0
@@ -99,17 +85,17 @@ const createTheme = (theme, _primaryColor, _secondaryColor) => {
             },
             MuiTab: {
                 textColorPrimary: {
-                    // color: fontColorWithAlpha54
+                    
                 }
             },
             MuiMenuItem: {
                 root: {
-                    // color: fontColorWithAlpha87
+                    
                 }
             },
             MuiInput: {
                 root: {
-                    // color: fontColorWithAlpha87,
+                    
                 }
             },
             MuiPaper: {
@@ -131,16 +117,16 @@ const createTheme = (theme, _primaryColor, _secondaryColor) => {
             },
             MuiTypography: {
                 root: {
-                    // color: fontColor
+                    
                 },
                 title: {
-                    // color: fontColor
+                    
                 },
                 subheading: {
-                    // color: fontColorWithAlpha87
+                    
                 },
                 body1: {
-                    // color: fontColorWithAlpha87
+                    
                 }
             }, MuiDialogContentText: {
                 root: {
@@ -148,24 +134,24 @@ const createTheme = (theme, _primaryColor, _secondaryColor) => {
                 }
             }, MuiModal: {
                 root: {
-                    // color: fontColor
+                    
                 }
             }, MuiTableHeader: {
                 root: {
-                    // color: fontColor
+                    
                 }
             }, MuiTableCell: {
                 root: {
                     borderBottom: "1px solid rgba(205, 205, 205, 1)"
                 },
                 head: {
-                    // color: fontColorWithAlpha87
+                    
                 }, body: {
-                    // color: fontColorWithAlpha87
+                    
                 }
             }, MuiGridListTileBar: {
                 title: {
-                    // color: fontColor
+                    
                 }
             }, MuiChip: {
                 deleteIcon: {
@@ -173,7 +159,7 @@ const createTheme = (theme, _primaryColor, _secondaryColor) => {
                 }
             }, MuiTooltip: {
                 tooltip: {
-                    // color: fontColor,
+                    
                     backgroundColor: "#000"
                 }
             },
