@@ -4,6 +4,8 @@ import ComponentIcon from "@material-ui/icons/PaletteOutlined"
 import TypographyIcon from "@material-ui/icons/TextFormatOutlined"
 import IconIcon from "@material-ui/icons/BubbleChartOutlined"
 import MapIcon from "@material-ui/icons/MapOutlined"
+import NotificationIcon from "@material-ui/icons/NotificationsOutlined"
+
 const indexRoutes = [
 
         {
@@ -20,6 +22,11 @@ const indexRoutes = [
                 path: "/components", label: "Components",
                 icon: ComponentIcon,
                 component: require("views/Components/Components.jsx").default
+        },
+        {
+                path: "/notification", label: "Notification",
+                icon: NotificationIcon,
+                component: require("views/Notification/Notification.jsx").default
         },
         {
                 path: "/typography", label: "Typography",
