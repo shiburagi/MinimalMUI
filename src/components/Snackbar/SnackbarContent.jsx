@@ -23,6 +23,9 @@ const variantIcon = {
 };
 
 const useStyles = makeStyles(theme => ({
+    root:{
+        display:"flex"
+    },
     success: {
         backgroundColor: green[600],
     },
@@ -55,6 +58,9 @@ const useStyles = makeStyles(theme => ({
         opacity: 0.9,
         marginRight: theme.spacing.unit,
     },
+    snackbarMessage:{
+        flex:1
+    },
     message: {
         display: 'flex',
         alignItems: 'center',
@@ -67,7 +73,12 @@ function MySnackbarContent({ className, message, icon, onClose, variant, ...othe
 
     return (
         <SnackbarContent
-            className={classNames(classes[variant], className)}
+            className={classNames(classes.root,classes[variant], className)}
+            classes={
+                {
+                    message:classes.snackbarMessage
+                }
+            }
             aria-describedby="client-snackbar"
             message={
                 <span id="client-snackbar" className={classes.message}>

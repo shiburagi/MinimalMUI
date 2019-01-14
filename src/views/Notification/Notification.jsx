@@ -5,6 +5,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import { makeStyles } from '@material-ui/styles';
 import { Grid } from '../../../node_modules/@material-ui/core';
 import SnackbarContent from "../../components/Snackbar/SnackbarContent";
+import NotificationIcon from "@material-ui/icons/Notifications"
 
 const useStyles2 = makeStyles(theme => ({
     margin: {
@@ -17,7 +18,7 @@ function Notification() {
     const [open, setOpen] = React.useState(false);
     const [variant, setVariant] = React.useState();
 
-    const handleClick=(variant)=>()=> {
+    const handleClick = (variant) => () => {
         setOpen(true);
         setVariant(variant);
     }
@@ -81,6 +82,12 @@ function Notification() {
                         message="I love snacks."
                     />
                     <SnackbarContent
+                        variant="inverse"
+                        className={classes.margin}
+                        message="I love candy. I love cookies. I love cupcakes. I love cheesecake. I love chocolate."
+                    />
+                    <SnackbarContent
+                        icon={NotificationIcon}
                         variant="inverse"
                         className={classes.margin}
                         message="I love candy. I love cookies. I love cupcakes. I love cheesecake. I love chocolate."
