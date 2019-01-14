@@ -4,11 +4,17 @@
 
 ![alt text](https://github.com/shiburagi/MinimalMUI/blob/master/preview/images/shot1.png?raw=true)
 ![alt text](https://github.com/shiburagi/MinimalMUI/blob/master/preview/images/shot3.png?raw=true)
+![alt text](https://github.com/shiburagi/MinimalMUI/blob/master/preview/images/shot5.png?raw=true)
+![alt text](https://github.com/shiburagi/MinimalMUI/blob/master/preview/images/shot7.png?raw=true)
+![alt text](https://github.com/shiburagi/MinimalMUI/blob/master/preview/images/shot9.png?raw=true)
 
 - Night Mode: 
 
 ![alt text](https://github.com/shiburagi/MinimalMUI/blob/master/preview/images/shot2.png?raw=true)
 ![alt text](https://github.com/shiburagi/MinimalMUI/blob/master/preview/images/shot4.png?raw=true)
+![alt text](https://github.com/shiburagi/MinimalMUI/blob/master/preview/images/shot6.png?raw=true)
+![alt text](https://github.com/shiburagi/MinimalMUI/blob/master/preview/images/shot8.png?raw=true)
+![alt text](https://github.com/shiburagi/MinimalMUI/blob/master/preview/images/shot10.png?raw=true)
 
 ### UI/UX Framework
 - [MATERIAL-UI](https://material-ui.com/)
@@ -24,9 +30,9 @@
 
 ### File Structure
 ```
-├── README.md
 ├── package.json
 ├── public
+|  ├── 404.html
 |  ├── favicon.ico
 |  ├── index.html
 |  └── manifest.json
@@ -47,11 +53,16 @@
    |  |  ├── index.js
    |  |  └── layouts
    |  |     └── dashboardStyle.js
+   |  ├── svg
+   |  |  ├── amex.svg
+   |  |  ├── mastercard.svg
+   |  |  └── visa.svg
    |  └── theme
    |     └── default.js
    ├── components
    |  ├── Card
-   |  |  └── Card.jsx
+   |  |  ├── Card.jsx
+   |  |  └── CreditCard.jsx
    |  ├── Chart
    |  |  └── SquareBar.jsx
    |  ├── Footer
@@ -62,6 +73,8 @@
    |  |  └── Loader.jsx
    |  ├── Sidebar
    |  |  └── Sidebar.jsx
+   |  ├── Snackbar
+   |  |  └── SnackbarContent.jsx
    |  ├── Table
    |  |  └── Table.jsx
    |  └── Tabs
@@ -85,12 +98,16 @@
       |  ├── OutlinedTextFields.jsx
       |  ├── Text.jsx
       |  └── TextFields.jsx
+      ├── Customize
+      |  └── Customize.js
       ├── Dashboard
       |  └── Dashboard.jsx
       ├── Icon
       |  └── Icon.jsx
       ├── Map
       |  └── Map.jsx
+      ├── Notification
+      |  └── Notification.jsx
       ├── Profile
       |  └── Profile.jsx
       └── Typography
