@@ -9,7 +9,7 @@ import SaveIcon from '@material-ui/icons/Save';
 import { makeStyles } from '@material-ui/styles';
 import classNames from "classnames";
 import React from 'react';
-import { Fab, IconButton, Typography } from '../../../node_modules/@material-ui/core';
+import { Fab, IconButton, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   button: {

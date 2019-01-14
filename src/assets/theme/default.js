@@ -4,7 +4,7 @@ import {
     primaryColor as primary,
     secondaryColor as secondary,
 } from "assets/jss";
-import { fade } from '../../../node_modules/@material-ui/core/styles/colorManipulator';
+import { fade } from '@material-ui/core/styles/colorManipulator';
 
 
 const createTheme = (theme, _primaryColor, _secondaryColor) => {

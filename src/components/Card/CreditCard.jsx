@@ -1,6 +1,6 @@
 import React from "react"
 import { makeStyles } from "@material-ui/styles";
-import { Paper, Typography } from "../../../node_modules/@material-ui/core";
+import { Paper, Typography } from "@material-ui/core";
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
@@ -30,7 +30,7 @@ function Card({ cardNumber = "-", expireDate = "-", icon, cardType: type, backgr
                 style={{ fontWeight: "bolder" }}>{expireDate}</Typography>
             {
                 icon ? icon :
-                    <img alt={type} src={require("../../assets/svg/" + type + ".svg")} height="32px"
+                    <img alt={type} src={require("assets/svg/" + type + ".svg")} height="32px"
                         style={{
                             position: "absolute",
                             right: 0,

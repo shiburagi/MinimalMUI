@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import indexRoutes from "routes/index";
 import { createRoutes } from "routes/utils";
 import { connect } from "react-redux"
-import { MuiThemeProvider } from '../node_modules/@material-ui/core';
+import { MuiThemeProvider } from '@material-ui/core';
 import Customize from './views/Customize/Customize';
 
 const UIThemeProvider = connect(state => ({

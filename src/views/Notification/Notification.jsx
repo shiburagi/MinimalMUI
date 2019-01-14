@@ -3,8 +3,8 @@ import Button from '@material-ui/core/Button';
 
 import Snackbar from '@material-ui/core/Snackbar';
 import { makeStyles } from '@material-ui/styles';
-import { Grid } from '../../../node_modules/@material-ui/core';
-import SnackbarContent from "../../components/Snackbar/SnackbarContent";
+import { Grid } from '@material-ui/core';
+import SnackbarContent from "components/Snackbar/SnackbarContent";
 import NotificationIcon from "@material-ui/icons/Notifications"
 
 const useStyles2 = makeStyles(theme => ({

@@ -2,10 +2,10 @@ import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 import { makeStyles } from '@material-ui/styles';
 import React from 'react';
 import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { Chip, Grid, Paper, Switch, Typography } from '../../../node_modules/@material-ui/core';
-import Card from "../../components/Card/Card"
-import Table from "../../components/Table/Table";
-import SquareBar from "../../components/Chart/SquareBar"
+import { Chip, Grid, Paper, Switch, Typography } from '@material-ui/core';
+import Card from "components/Card/Card"
+import Table from "components/Table/Table";
+import SquareBar from "components/Chart/SquareBar"
 
 let counter = 0;
 function createData(name, date, type, status, option) {

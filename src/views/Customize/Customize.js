@@ -9,9 +9,9 @@ import classNames from 'classnames';
 import React from 'react';
 import { CirclePicker as ColorPicker } from 'react-color';
 import { connect } from "react-redux";
-import { Button, Typography } from '../../../node_modules/@material-ui/core';
-import { changePrimaryColor, changeSecondaryColor, changeTheme, changeToolbarColor } from "../../actions";
-import { primaryColor, secondaryColor } from '../../assets/jss';
+import { Button, Typography } from '@material-ui/core';
+import { changePrimaryColor, changeSecondaryColor, changeTheme, changeToolbarColor } from "actions";
+import { primaryColor, secondaryColor } from 'assets/jss';
 
 const drawerWidth = 360;
 

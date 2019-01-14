@@ -1,6 +1,6 @@
 import React from "react";
-import { Paper } from "../../../node_modules/@material-ui/core";
-import Tabs from "../../components/Tabs/Tabs";
+import { Paper } from "@material-ui/core";
+import Tabs from "components/Tabs/Tabs";
 import Buttons from "./Buttons";
 import FilledTextFields from "./FilledTextFields";
 import OutlinedTextFields from "./OutlinedTextFields";

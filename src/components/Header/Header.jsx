@@ -17,8 +17,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { Avatar, CssBaseline } from '../../../node_modules/@material-ui/core';
-import headerStyle from "../../assets/jss/components/headerStyle";
+import { Avatar, CssBaseline } from '@material-ui/core';
+import headerStyle from "assets/jss/components/headerStyle";
 
 const useStyles = makeStyles(headerStyle);
 
@@ -92,7 +92,7 @@ function Header({ collapse, onDrawerOpen, toolbarColor }) {
         className={classes.menuItem}
         onClick={handleProfileMenuOpen}>
         <IconButton color="inherit">
-          <Avatar src={require("../../assets/img/user1.jpg")} className={classes.avatar} />
+          <Avatar src={require("assets/img/user1.jpg")} className={classes.avatar} />
         </IconButton>
         <p>Profile</p>
       </MenuItem>
@@ -156,7 +156,7 @@ function Header({ collapse, onDrawerOpen, toolbarColor }) {
                 marginLeft: 4,
               }}
             >
-              <Avatar src={require("../../assets/img/user1.jpg")} />
+              <Avatar src={require("assets/img/user1.jpg")} />
 
             </IconButton>
           </div>

@@ -1,8 +1,8 @@
 
 import { makeStyles } from "@material-ui/styles";
 import React from "react";
-import { Avatar, Divider, FormControl, FormControlLabel, Grid, Paper, Radio, RadioGroup, TextField, Typography, Fab } from "../../../node_modules/@material-ui/core";
-import CreditCard from "../../components/Card/CreditCard";
+import { Avatar, Divider, FormControl, FormControlLabel, Grid, Paper, Radio, RadioGroup, TextField, Typography, Fab } from "@material-ui/core";
+import CreditCard from "components/Card/CreditCard";
 
 
 const cards = [
@@ -65,11 +65,11 @@ function Profile() {
                     paddingBottom: 16
                 }}>
                     <div style={{
-                        background: `url(${require("../../assets/img/banner1.jpg")})`,
+                        background: `url(${require("assets/img/banner1.jpg")})`,
                         backgroundPosition: "center",
                         height: 140
                     }} />
-                    <Avatar alt="Remy Sharp" src={require("../../assets/img/user1.jpg")} className={classes.avatar} />
+                    <Avatar alt="Remy Sharp" src={require("assets/img/user1.jpg")} className={classes.avatar} />
                     <Typography variant={"subtitle2"} color="textSecondary" style={{
                         marginTop: 24,
                         padding: "0px 32px",

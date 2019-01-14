@@ -12,8 +12,8 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { NavLink, withRouter } from "react-router-dom";
-import { Fade, Hidden, Paper, Popper, Typography } from '../../../node_modules/@material-ui/core';
-import sidebarStyle from "../../assets/jss/components/sidebarStyle";
+import { Fade, Hidden, Paper, Popper, Typography } from '@material-ui/core';
+import sidebarStyle from "assets/jss/components/sidebarStyle";
 
 const isActiveRoute = (location, path) => {
     return location.pathname.includes(path)

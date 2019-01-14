@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import Loader from "../components/Loader/Loader"
+import Loader from "components/Loader/Loader"
 
 export function createRoutes(routes, padding) {
     return CSRRoutes(routes, padding);

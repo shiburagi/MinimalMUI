@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/styles";
 import React from "react";
-import { Button, Grid, Typography } from "../../../node_modules/@material-ui/core";
+import { Button, Grid, Typography } from "@material-ui/core";
 const useStyles = makeStyles(theme => ({
     footer: {
         background: theme.palette.background.paper,

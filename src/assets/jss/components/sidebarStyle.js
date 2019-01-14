@@ -1,5 +1,5 @@
 import { drawerWidth } from "../index"
-import { fade } from "../../../../node_modules/@material-ui/core/styles/colorManipulator";
+import { fade } from "@material-ui/core/styles/colorManipulator";
 export default (theme => {
     const secondaryColor = theme.palette.secondary.main
     return {

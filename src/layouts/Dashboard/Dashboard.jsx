@@ -1,12 +1,12 @@
 /* eslint-disable */
 import { makeStyles } from "@material-ui/styles";
 import React, { useState, useEffect, useRef } from "react";
-import Header from "../../components/Header/Header";
-import Sidebar from "../../components/Sidebar/Sidebar";
-import dashboardRoutes from "../../routes/dashboard";
-import { createRoutes } from "../../routes/utils";
-import { CssBaseline, Typography, Hidden } from "../../../node_modules/@material-ui/core";
-import Footer from "../../components/Footer/Footer";
+import Header from "components/Header/Header";
+import Sidebar from "components/Sidebar/Sidebar";
+import dashboardRoutes from "routes/dashboard";
+import { createRoutes } from "routes/utils";
+import { CssBaseline, Typography, Hidden } from "@material-ui/core";
+import Footer from "components/Footer/Footer";
 
 
 const useStyles = makeStyles(theme => ({
