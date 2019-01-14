@@ -33,7 +33,10 @@ const useStyles = makeStyles(theme => ({
         height: "480px",
         border: "1px solid " + theme.palette.divider,
         overflowY: "hidden",
-        maxHeight: "60vh"
+        maxHeight: "60vh",
+        [theme.breakpoints.down("sm")]:{
+            overflowY: "hidden",
+        }
 
     },
     drawer: {
